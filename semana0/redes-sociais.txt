@@ -1,1 +1,5 @@
 Eu já usei muito as redes sociais, mas hoje em dia não gosto tanto. Mas tenho um site com minhas fotografias! www.lualuna.art
+<<<<<<< HEAD
+=======
+
+>>>>>>> 04d440a39ff0467c40acce4424a60aa38b4b092e
