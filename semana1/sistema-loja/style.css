@@ -1,0 +1,98 @@
+* {
+    font-family: 'Barlow Condensed', sans-serif;
+
+    
+
+}
+
+.title {
+    font-family: 'Dancing Script', cursive;
+    line-height: 70px;
+    
+}
+
+
+.cabecalho {
+    width: 80vh;
+    margin: auto;
+    text-align: center;
+    background-color: rgb(224, 230, 231);
+}
+
+.main {
+    width: 80vh;
+    height: 100%;
+    margin: auto;
+    background-color: antiquewhite;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.center {
+    text-align: center;
+}
+
+footer {
+    width: 70vh;
+    margin: auto;
+    text-align: center;
+    padding: 5px;
+}
+
+footer a {
+    text-decoration: none;
+    color: black;
+}
+
+.menu {
+    padding: 10px;
+    background-color: black;
+    width: 80vh;
+    box-sizing: border-box;
+}
+
+.menu a {
+    text-decoration: none;
+    color: white;
+    margin: 0px 10px 0px 10px;
+}
+
+table {
+    text-align: center;
+    margin: 10px;
+}
+
+.lista {
+    list-style-type: none;
+}
+
+form {
+    padding: 10px;
+}
+
+.btn {
+    width: 60px;
+    border: none;
+    padding: 5px;
+    background-color: black;
+    color: white;
+}
+
+input{
+    border: none;
+    width: 180px;
+}
+
+input:focus{
+    border: none;
+    color: cadetblue;
+    outline: none;  
+}
+
+.relative-position {
+    position: relative;
+    margin: auto;
+    width: 25vh;
+    padding: 10px;
+}
+

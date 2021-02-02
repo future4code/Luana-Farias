@@ -5,52 +5,74 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Adicionar Produto - Mercad&phi; Encantad&phi;</title>
+
+    <link rel="stylesheet" href="style.css">
+    <link href="http://fonts.googleapis.com/css?family=Satisfy" rel="stylesheet" type="text/css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@300&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div>
-        <p>Mercad&phi; Encantad&phi;</p>
-    </div>
-    
-    <div>
-        <a href="index.html">Página Inicial   |</a>
-        <a href="ctrl-estoque.html">Controle de Estoque   |</a>
-        <a href="add-produto.html">Adicionar Produto   |</a>
-        <a href="funcionarios.html">Funcionários</a>
-    </div>
 
+    <header class="cabecalho">
+        <div>
+            <h1 class="title">Mercado Encantado </h1>
+            <p>Seu portal para o mundo mágico &#9889</p>
+        </div>
     
+        <div class="menu">
+            <a href="index.html">Página Inicial</a>
+            <a href="ctrl-estoque.html">Controle de Estoque</a>
+            <a href="add-produto.html">Adicionar Produto</a>
+            <a href="funcionarios.html">Funcionários</a>
+        </div>
+    </header>
+
+    <main class="main">
+
+        <div class="relative-position">
     <h2>Adicionar Produto &#10133;</h2>
+    
     <form action="ctrl-estoque.html">
         <div>
-            <label for="link-foto">Link para foto: </label>
+            <label for="link-foto">Link para foto: </label><br>
             <input type="url" id="link-foto" name="link-foto">
         </div>
         
         <div>
-            <label for="descricao">Descrição do produto: </label>
+            <label for="descricao">Descrição do produto: </label><br>
             <!-- Adicione o id apropriado para o input abaixo -->
             <input type="text" id="descricao" name="descrição">
         </div>
         
         <div>
-            <label for="preco">Preço (em R$): </label>
+            <label for="preco">Preço (em R$): </label> <br>
             <!-- Adicione o id apropriado e o type para receber números abaixo -->
             <input type="number" id="preco" name="preço">
         </div>
         
         <div>
             <!-- Preencha as propriedades necessárias para os elementos abaixo -->
-            <label for="quantidade">Quantidade disponível: </label>
-            <input type="text" id="quantidade">
+            <label for="quantidade">Quantidade disponível: </label><br>
+            <input type="text" id="quantidade"><br><br>
         </div>
 
         <div class="form-add">
             <!-- Adicione ao type do botão abaixo o valor para que ele submeta o formulário -->
-            <button type="submit">Adicionar</button>
+            <button class="btn" type="submit">Adicionar</button>
         </div>
 
     </form>
-    <p><a href="index.html">&#127977; Home</a></p>
+    </div>
+    </main>
+
+    <footer>
+        <p><a href="index.html">&#127977; Home</a></p>
+        Mercado Encantado &#169; Todos os direitos reservados
+    </footer>
+    
 
 </body>
 </html>
