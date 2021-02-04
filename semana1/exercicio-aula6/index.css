@@ -29,6 +29,10 @@ button {
     cursor: pointer;
 }
 
+button:hover {
+    background-color: rgb(231, 230, 169);
+}
+
 img {
     width: 100px;
 }
