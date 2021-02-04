@@ -35,6 +35,7 @@ img {
 
 div>p:first-child {
     display: block;
+
 }
 
 div img {
@@ -73,9 +74,10 @@ div img {
 #container-de-descricao {
     background-color: #2274a5;
     color: white;
+   
 }
 
-#container-de-descricao>ol {
+.section>ol {
     padding: 15px 0px;
 }
 
@@ -87,6 +89,13 @@ div img {
     color: #c44f00;
     padding: 50px;
     font-size: 60px;
+}
+
+section {
+
+    display: inline-block;
+    margin-top: 100px;
+
 }
 
 
