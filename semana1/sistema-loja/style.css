@@ -7,20 +7,22 @@
 
 .title {
     font-family: 'Dancing Script', cursive;
-    line-height: 70px;
+    font-size: 80px;
+   padding: 0;
+   margin: 0;
     
 }
 
 
 .cabecalho {
-    width: 80vh;
+    width: 100vh;
     margin: auto;
     text-align: center;
     background-color: rgb(224, 230, 231);
 }
 
 .main {
-    width: 80vh;
+    width: 100vh;
     height: 100%;
     margin: auto;
     background-color: antiquewhite;
@@ -33,7 +35,7 @@
 }
 
 footer {
-    width: 70vh;
+    width: 100vh;
     margin: auto;
     text-align: center;
     padding: 5px;
@@ -47,7 +49,7 @@ footer a {
 .menu {
     padding: 10px;
     background-color: black;
-    width: 80vh;
+    width: 100vh;
     box-sizing: border-box;
 }
 
@@ -57,14 +59,40 @@ footer a {
     margin: 0px 10px 0px 10px;
 }
 
-table {
+table#estoque {
     text-align: center;
     margin: 10px;
+    margin: auto;
+
 }
+
+table th, table td {
+    text-align: center;
+    padding: 7px;
+    background-color: white;
+}
+
+
 
 .lista {
     list-style-type: none;
 }
+
+.lista a {
+    text-decoration: none;
+    color: black;
+
+}
+
+ul {
+    margin: 15px;
+    padding: 0;
+}
+
+a:hover{
+    
+}
+
 
 form {
     padding: 10px;
@@ -78,14 +106,21 @@ form {
     color: white;
 }
 
+.btn--vendas {
+    width: 100px;
+}
+
 input{
     border: none;
     width: 180px;
 }
 
+input#cod-produto {
+    width: 400px;
+}
+
 input:focus{
     border: none;
-    color: cadetblue;
     outline: none;  
 }
 
@@ -94,5 +129,53 @@ input:focus{
     margin: auto;
     width: 25vh;
     padding: 10px;
+    
+}
+
+.formulario-vendas {
+    width: 78%;
+    height: 300px;
+    display: inline-block; 
+  
+        
+}
+
+.historico-vendas {
+    position: relative;
+    width: 75vh;
+    display: inline-block;
+}
+
+.nav-lateral {
+    width: 106px;
+    height: 100px;
+    float: right;
+    background-color: white;
+   margin: 20px;
+}
+
+.vendas {
+    margin: 15px;
+}
+
+select {
+    border: none;
+}
+
+select:focus {
+    outline: none;
+}
+
+.lupa {
+    width: 13px;
+    margin-left: 5px;
+}
+
+.pesquisa-data {
+    width: 300px;
+    height: 40px;
+    text-align: center;
+    padding: 20px;
+    display: inline-block;
 }
 

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vendas - Mercado Encantado</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="http://fonts.googleapis.com/css?family=Satisfy" rel="stylesheet" type="text/css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@300&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="cabecalho">
+
+        
+        <div>
+            <h1 class="title">Mercado Encantado </h1>
+            <p>Seu portal para o mundo mágico &#9889</p>
+        </div>
+    
+        <div class="menu">
+            <a href="index.html">Página Inicial</a>
+            <a href="ctrl-estoque.html">Controle de Estoque</a>
+            <a href="add-produto.html">Adicionar Produto</a>
+            <a href="vendas.html">Realizar Venda</a>
+        </div>
+    </header>
+
+    <main class="main">
+
+        <div class="formulario-vendas">
+
+            
+            <h2 class="center">Realizar Venda</h2>
+    
+    <form action="historico.html">
+        <div class="vendas">
+            <label for="cod-produto">Pesquisar produto: </label>
+            <input type="url" id="cod-produto" name="link-foto">
+            <img class="lupa" src="img/lupa.svg" alt="">
+        </div>
+
+        <span>
+            <label for="produtos">Selecione o produto:</label>
+            <select name="produtos" id="produtos">
+                <option value="Coleção de CD's do Elliot">Coleção de CD's do Elliot</option>
+                <option value="Container para Água benta do Sam Winchester">Container para Água benta do Sam Winchester</option>
+                <option value="Óculos Dean Winchester">Óculos Dean Winchester</option>
+                <option value="Capa Luke Skywalker">Capa Luke Skywalker</option>
+                <option value="Sabre de Luz Rey Skywalker">Sabre de Luz Rey Skywalker</option>
+                <option value="Monster Book Harry Potter">Monster Book Harry Potter</option>
+                <option value="Poção Polissuco da Hermione Granger">Poção Polissuco da Hermione Granger</option>
+
+            </select>
+        </span>
+
+        <span class="vendas">
+        <label for="pagamento">Forma de Pagamento:</label>
+        <select name="pagamento" id="pagamento">
+            <option value="credito">Crédito</option>
+            <option value="credito">Débito</option>
+            <option value="credito">Dinheiro</option>
+        </select>
+        </span> <br><br><br>
+
+
+
+
+        <div class="center">
+            <button class="btn btn--vendas" type="submit">Finalizar compra</button>
+        </div>
+
+    </form>
+        </div>
+        <aside class="nav-lateral">
+            <ul class="lista">
+                <li><a href="historico.html">Histórico</a></li>
+                <li><a href="funcionarios.html">Funcionários</a></li>
+                <li><a href="index.html">Home Page</a></li>
+            </ul>
+        </aside>
+
+    </main>
+
+    <footer>
+        Mercado Encantado &#169; Todos os direitos reservados
+    </footer>
+    
+</body>
+</html>
