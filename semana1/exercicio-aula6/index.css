@@ -58,6 +58,7 @@ div img {
 .container {
     height: 500px;
     text-align: center;
+    margin: auto;
 }
 
 .icone {
