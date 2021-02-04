@@ -21,6 +21,16 @@ input {
     width: 500px;
 }
 
+input[type=text] {
+    border-top: 0;
+    border-left: 0;
+    border-right: 0;
+}
+
+input[type=text]:focus{
+    outline: none;
+}
+
 button:focus {
     color: white;
 }
@@ -30,7 +40,8 @@ button {
 }
 
 button:hover {
-    background-color: rgb(231, 230, 169);
+    background-color: rgb(240, 141, 12);
+    color: white;
 }
 
 img {
