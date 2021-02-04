@@ -25,12 +25,16 @@ button:focus {
     color: white;
 }
 
+button {
+    cursor: pointer;
+}
+
 img {
     width: 100px;
 }
 
 div>p:first-child {
-    display: inline;
+    display: block;
 }
 
 div img {
@@ -81,7 +85,7 @@ div img {
 
 #container-para-comprar>p {
     color: #c44f00;
-    padding: 100px 0;
+    padding: 50px;
     font-size: 60px;
 }
 
