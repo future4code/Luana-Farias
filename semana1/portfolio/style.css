@@ -1,0 +1,159 @@
+/* ------------------ FONTES  */
+@font-face {
+    font-family: Butler;
+    src: url(fonts/Butler_Regular.woff);
+}
+
+@font-face {
+    font-family: Quicksand;
+    src: url(fonts/Quicksand-Light_1.woff);
+}
+
+/* -------------------- FORMATAÇÕES GERAIS */
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-size: 1rem;
+}
+
+/* ----------------------- HEADER */
+
+.c-header {
+    /* background-color: burlywood; */
+    display: flex;
+    justify-content: space-between;
+    width: 100vw;
+    height: 15vh;
+    font-family: Quicksand;
+
+}
+
+.c-header__title{
+    margin-left: 20%;
+    line-height: 15vh;
+    font-size: 1.4em;
+    
+}
+
+.c-menu {
+    /* background-color: cadetblue; */
+    display: flex;
+    margin-right: 20%;
+}
+
+.c-menu__item a {
+    text-decoration: none; 
+    color: rgb(27, 27, 27);
+    border: 1.5px solid rgb(255, 255, 255);
+    padding: 5px; 
+    font-size: 1.2rem;
+}
+
+.c-menu__item a:hover {
+    border: 1.5px solid rgb(255, 191, 42);
+}
+
+.c-menu__item li {
+    text-decoration: none;
+    list-style-type: none;
+    display: inline;
+    padding: 20px;
+    line-height: 15vh;
+    
+}
+
+/* -------------------------------- MAIN */
+
+.c-card {
+    display: flex;
+    justify-content: space-between;
+    /* background-color: blue; */
+    width: ;
+    height: 75vh;
+}
+
+.c-card__greeting {
+    height: 70vh;
+    width: 60vw;
+    /* background-color: cornsilk; */
+    margin-left: 20%;
+}
+
+.c-card__greeting img {
+    width: 50%;
+    /* background-color: rgb(90, 49, 49); */
+    margin-left: 50%;
+    margin-top: 4%;
+}
+
+.c-card__text {
+    position: absolute;
+    margin-left: 500px;
+    margin-top: 180px;
+    width: 20%;
+    text-align: justify;
+    font-family: Butler;
+    font-family: 'Bodoni Moda', serif;
+    z-index: 1;
+}
+
+.c-card__title  {
+    font-size: 90px;
+    font-family: Butler;
+    /* font-family: 'Bodoni Moda', serif; */
+}
+
+.div-vertical {
+    /* background-color: darkgoldenrod; */
+    position: absolute;
+    width: 300px;
+    margin-top: 500px;
+    margin-left: 10%;
+    transform: rotate(-90deg);
+    -webkit-transform: rotate(-90deg);
+    -moz-transform: rotate(-90deg);
+}
+
+.texto-vertical {
+    font-size: 1.3em;
+    font-family: Quicksand;
+}
+
+/* ------------------------------ FOOTER */
+
+.c-footer {
+    width: 100vw;
+    height: 10vh;
+    background-color: rgb(255, 191, 42);
+    text-align: right;
+    
+}
+
+.c-footer img {
+    width: 30px;
+   margin: 10px;
+   margin-top: 30px;
+}
+
+.c-footer__img {
+    width: 70vw;
+    height: 10vh;
+    margin-left: 210px;
+    /* background-color: springgreen; */
+}
+
+/* ------------------------- ELEMENTOS GRÁFICOS */
+
+.circulo {
+    position: absolute;
+    margin-left: 430px;
+    margin-top: 180px;
+    background-color:  rgb(255, 191, 42);
+	width: 150px;
+	height: 150px;
+	border-radius: 50%;
+    z-index: 0;
+	
+}
