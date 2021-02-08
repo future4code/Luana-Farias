@@ -27,20 +27,36 @@
     <main>
         <section class="c-card">
             <div class="div-vertical">
-                <div class="texto-vertical">APRESENTAÇÃO</div>
+                <div class="texto-vertical">CONTATO</div>
             </div>
             <div class="c-card__greeting">
-                <span><img src="img/me.png" alt=""></span>
+                <div class="c-form">
+                    <p class="c-projects">Contato</p>
+                    <form action="enviado.html">
+                        <div class="c-form__campo">
+                            <label for="nome">Nome</label>
+                            <input id="nome" type="text">
+                        </div>
+
+                        <div class="c-form__campo">
+                            <label for="email">E-mail</label>
+                            <input type="email">
+                        </div>
+
+                        <div class="c-form__campo">
+                            <textarea name="" id="" cols="50" rows="10" placeholder="Digite sua mensagem"></textarea>
+                            <div class="center">
+                                <button class="c-form__campo btn">Enviar</button>
+                            </div>
+                        </div>
+                    </form>
+
+                </div>
+
             </div>
-            <article class="c-card__text">
-                <p class="c-card__title">Hello</p>
-                <p>Prazer, sou a Luana! Há dois meses decidi mudar de carreira e me tornar uma Web Developer.
-                    Um pouco do que você verá aqui são frutos de dois meses intensos de estudos, através de materiais da internet e pequenos cursos.
-                    Atualmente, estou fazendo um bootcamp totalmente focado em empregabilidade na Labenu, uma experiência importante para meu cresimento
-                    profissional e pessoal, para tanto evoluir nas hard skills quanto nas soft skills.
-                </p>
-            </article>
-            <div class="circulo"></div>
+            <div class="circulo__contato"></div>
+
+
         </section>
     </main>
     <footer class="c-footer">
