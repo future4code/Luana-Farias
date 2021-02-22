@@ -1,0 +1,341 @@
+/* ------------------ FONTES  */
+@font-face {
+    font-family: Butler;
+    src: url(fonts/Butler_Regular.woff);
+}
+
+@font-face {
+    font-family: Quicksand;
+    src: url(fonts/Quicksand-Light_1.woff);
+}
+
+/* -------------------- FORMATAÇÕES GERAIS */
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-size: 1rem;
+    font-family: Quicksand;
+}
+
+/* ----------------------- HEADER */
+
+.c-header {
+    /* background-color: burlywood; */
+    display: flex;
+    justify-content: space-between;
+    width: 100vw;
+    height: 15vh;
+    /* font-family: Quicksand; */
+
+}
+
+.c-header__title{
+    margin-left: 20%;
+    line-height: 15vh;
+    font-size: 1.4em;
+    
+}
+
+.c-menu {
+    /* background-color: cadetblue; */
+    display: flex;
+    margin-right: 20%;
+}
+
+.c-menu__item a {
+    text-decoration: none; 
+    color: rgb(27, 27, 27);
+    border: 1.5px solid rgb(255, 255, 255);
+    padding: 5px; 
+    font-size: 1.2rem;
+}
+
+.c-menu__item a:hover {
+    border: 1.5px solid rgb(255, 191, 42);
+}
+
+.c-menu__item li {
+    text-decoration: none;
+    list-style-type: none;
+    display: inline;
+    padding: 20px;
+    line-height: 15vh;
+    
+}
+
+/* -------------------------------- MAIN */
+
+.c-card {
+    display: flex;
+    justify-content: space-between;
+    /* background-color: blue; */
+    width: ;
+    height: 75vh;
+}
+
+.c-card__greeting {
+    height: 70vh;
+    width: 60vw;
+    /* background-color: cornsilk; */
+    margin-left: 20%;
+}
+
+.c-card__greeting img {
+    width: 50%;
+    /* background-color: rgb(90, 49, 49); */
+    margin-left: 50%;
+    margin-top: 4%;
+}
+
+.c-card__text {
+    position: absolute;
+    margin-left: 500px;
+    margin-top: 180px;
+    width: 20%;
+    text-align: justify;
+    font-family: Butler;
+    font-family: 'Bodoni Moda', serif;
+    z-index: 1;
+}
+
+.c-card__title  {
+    font-size: 90px;
+    font-family: Butler;
+    /* font-family: 'Bodoni Moda', serif; */
+}
+
+.div-vertical {
+    /* background-color: darkgoldenrod; */
+    position: absolute;
+    width: 300px;
+    margin-top: 500px;
+    margin-left: 10%;
+    transform: rotate(-90deg);
+    -webkit-transform: rotate(-90deg);
+    -moz-transform: rotate(-90deg);
+}
+
+.texto-vertical {
+    font-size: 1.3em;
+    font-family: Quicksand;
+}
+
+/* ------------------------------ FOOTER */
+
+.c-footer {
+    width: 100vw;
+    height: 10vh;
+    background-color: rgb(255, 191, 42);
+    text-align: right;
+    
+}
+
+.c-footer img {
+    width: 30px;
+   margin: 10px;
+   margin-top: 30px;
+}
+
+.c-footer__img {
+    width: 70vw;
+    height: 10vh;
+    margin-left: 210px;
+    /* background-color: springgreen; */
+}
+
+/* ----------------------------- PROJETOS */
+
+.c-card__projects {
+    height: 75vh;
+    width: 60vw;
+    /* background-color: cornsilk; */
+    margin-left: 20%;
+    z-index: 2;
+}
+
+.c-projects {
+    font-family: Butler;
+    font-size: 60px;
+    z-index: 2;
+    
+}
+
+.c-projects__cards {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    height: 65vh;
+    width: 60vw;
+    /* background-color: springgreen; */
+}
+
+.c-cards {
+    width: 350px;
+    height: 300px;
+    /* background-color: thistle; */
+    margin: 10px;
+    text-align: center;
+    z-index: 2;
+}
+
+.c-cards img {
+    width: 300px;
+    height: 300px;
+    border: 1.2px solid rgb(255, 191, 42);
+    padding: 10px;
+}
+
+.c-cards--legenda{
+    width: 300px;
+    height: 120px;
+    margin: 10px;
+}
+
+.c-cards--legenda > p {
+    text-align: justify;
+    font-size: 1.2rem;
+    font-family: Butler;
+    /* background-color: thistle; */
+}
+
+/* ---------------------------- FORMULÁRIO */
+
+
+.c-form {
+    display: flex;
+    justify-content:space-around;
+    height: 70vh;
+    align-items: center;   /* isso aqui foi mágica. consegui alihar perfeitamente na vertical no centro com align items */
+    font-family: Quicksand;
+}
+
+.c-form__campo {
+    margin: 40px;
+}
+
+.c-form__campo > input {
+    width: 315px;
+    border: none;
+    background-color: rgb(255, 255, 255);
+    padding: 2px;
+    border-bottom: 1.2px solid rgb(255, 191, 42); /*pela especificidade, primeiro tirei a borda, depois add border bottom (a ultima é mais especifica) */
+}
+
+.c-form__campo > input:focus {
+    outline: none;
+}
+
+.c-form__campo > textarea:focus {
+    outline: none;
+    border: 1px solid rgb(255, 191, 42);
+} 
+
+.c-form__campo >textarea {
+    padding: 10px;
+}
+
+
+/* --------------------------------- QUEM SOU */
+
+.c-card__quemsou {
+    height: 70vh;
+    width: 60vw;
+    /* background-color: cornsilk; */
+    margin-left: 20%;
+    text-align: center;
+}
+
+.c-card__quemsou > h3, p {
+   padding: 10px;
+   text-align: justify;
+}
+
+.c-card__inline {
+    display: flex;
+    justify-content: space-evenly;
+    margin: 20px;
+}
+
+.c-card__inline > span {
+    width: 50vh;
+}
+
+.c-card__block {
+    margin: 20px;
+}
+
+
+
+/* ------------------------- ELEMENTOS GRÁFICOS */
+
+.circulo {
+    position: absolute;
+    margin-left: 430px;
+    margin-top: 180px;
+    background-color:  rgb(255, 191, 42);
+	width: 150px;
+	height: 150px;
+	border-radius: 50%;
+    z-index: 0;
+}
+
+.circulo__2 {
+    position: absolute;
+    margin-left: 300px;
+    margin-top: -8px;
+    background-color:  rgb(255, 191, 42);
+	width: 150px;
+	height: 150px;
+	border-radius: 50%;
+    z-index: 0;
+}
+
+.circulo__contato {
+    width: 150px;
+    height: 150px;
+    background-color:  rgb(255, 191, 42);
+    border-radius: 50%;
+    position: absolute;
+    margin-left: 460px;
+    margin-top: 240px;
+    z-index: 0;
+}
+
+.btn {
+    width: 100px;
+    height: 30px;
+    background-color: transparent;
+    border: 1.5px solid rgb(255, 191, 42);
+    font-size: 13px;
+    margin: 20px;
+    cursor: pointer;
+}
+
+.btn a {
+    text-decoration: none;
+    color: rgb(41, 40, 40);
+}
+
+.btn:hover {
+    background-color: rgb(255, 191, 42);
+    color: white;
+    outline: none;
+}
+
+.div-btn {
+    display: flex;
+    justify-content: space-around;
+    height: 8vh;
+    width: 60vw;
+    /* background-color: tomato; */
+}
+
+.btn-voltar {
+    margin-left: 280px;
+}
+
+.center {
+    text-align: center;  /*elemento utilizado para centralizar coisas dentro de containers */
+}
