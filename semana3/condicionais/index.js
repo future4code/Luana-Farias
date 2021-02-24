@@ -1,24 +1,23 @@
 // INTERPRETAÇÃO DE CÓDIGO
 
 // EXERCICIO 1
-// Esse código serve para  verificar se um código é par ou ímpar através do operador resto. Ao dividir 
-// o numero inserido no promp pelo usuário, não pode sobrar resto na divisão. Caso sobre, significa que o
+// Esse código serve para verificar se um código é par ou ímpar através do operador resto da divisão (%). Ao dividir 
+// o numero inserido no prompt pelo usuário, não pode sobrar resto na divisão. Caso sobre, significa que o
 // número é ímpar.
 // Ao digitar 20 no prompt, o número passa no teste porque 20 é par e não sobra nada da divisão.
 
  
 // EXERCICIO 2
-//     a) Esse código serve para fazer uma verificação dos dados que o usuário digitou. Caso queira buscar
+//      a) Esse código serve para fazer uma verificação dos dados que o usuário digitou. Caso queira buscar
 // uma fruta, basta digitar o nome e o código faz a verificação de todos cases para ver qual é verdade.
-//    b) A mensagem que será impressa no console é: "O preço da fruta maçã é R$2.25"
-//    c) Caso tirasse o break, a mensagem impressa no console seria:
-//                                               O preço da fruta pêra é R$5
+//      b) A mensagem que será impressa no console é: "O preço da fruta maçã é R$2.25"
+//      c) Caso tirasse o break, a mensagem impressa no console seria: O preço da fruta pêra é R$5
 
 
 // EXERCICIO 3
-//    a) A primeira linha solicita que o usuário informe um número.
+//      a) A primeira linha solicita que o usuário informe um número.
 //      b) caso o numero seja maior que 0, a mensagem que aparece é "Esse numero passou no teste"
-//      c) Caso número dgitado eja -10, a mensagem não aparece porque avariavel mensagem esta no escopo do if.
+//      c) Caso número digitado seja -10, a mensagem não aparece porque a variavel mensagem está no escopo do if.
 
 
 // ESCRITA DE CÓDIGO
