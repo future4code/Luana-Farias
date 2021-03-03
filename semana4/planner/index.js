@@ -1,10 +1,16 @@
 //---------------------------------------------- CÓDIGO COM FOR (funciona) ------------------------------------------------
 let dias = document.getElementById("dias-semana")
+
 function criarTarefa(){
 
     let tarefa = document.getElementById("tarefa")
     let dias = document.getElementById("dias-semana")
     let semana = document.querySelectorAll(".semana > div")
+
+        //impede de colocar
+    if(tarefa.value === "") {
+        alert("Digite uma tarefa válida")
+    }
     
          for(i=0; i<semana.length; i++){
             if(dias.value === semana[i].id){
