@@ -1,81 +1,151 @@
 //Exercício 1
 let meuArray =  [0, 8, 23, 16, 10, 15, 41, 12, 13]
+
 function inverteArray(array) {
-  return meuArray.reverse()
+  return array.reverse()
 }
+inverteArray(meuArray)
+
+
 
 //Exercício 2
 
 function retornaNumerosParesElevadosADois (array) {
-   let parr = []
-   array.forEach((valor) => {
-      if(valor % 2 === 0) {
-         valor = valor * valor
-         parr.push(valor)
-      }
-      console.log(parr)
-   })
-}
-retornaNumerosParesElevadosADois(meuArray)
-
-
+      let mult = []
+       array.filter((valor) => {
+          if(valor % 2 === 0) {
+            mult.push(Math.pow(valor, 2))
+          }
+       })
+      //  console.log("Questão 2: ", mult)   //RESULTADO NO CONSOLE
+       return mult
+    }
    
 
+   // function retornaNumerosParesElevadosADois (array) {
+   //    array.filter((valor) => {
+   //       if(valor % 2 === 0) {
+   //          return valor ** 2
+   //       }
+   //    })
+   // }
 
-      
+
+
+     
 
 //Exercício 3
 
 function retornaNumerosPares (array) {
-   const pares = array.filter((numeros) => {
-      return numeros % 2 === 0
-   })
-   
-}
+      let pares = []
+       array.filter((valor) => {
+          if(valor % 2 === 0) {
+            pares.push(valor)
+          }
+       })
+      //  console.log("Questão 3: ", pares)  //RESULTADO NO CONSOLE
+       return pares
+    }
 
-const pares = meuArray.filter((numeros) => {
-   return numeros % 2 === 0
-})
-// console.log(pares)
-retornaNumerosPares(meuArray)
 
 
 
 //Exercício 4
 
 function retornaMaiorNumero(array) {
-   // implemente sua lógica aqui
+   let maiorNum = 0;
+   array.filter((num) => {
+      if(num >= maiorNum) {
+      maiorNum = num
+      }
+   })
+   // console.log( "Questão numero 4: ", maiorNum)   //RESULTADO NO CONSOLE
+   return maiorNum
 }
+
 
 //Exercício 5
 
 function retornaQuantidadeElementos (array) {
-   // implemente sua lógica aqui
+   return array.length
 }
 
 //Exercício 6
 
 function retornaExpressoesBooleanas() {
-   // implemente sua lógica aqui
+ const resultados = [false, false, true, true, true]
+ return resultados
 }
 
 //Exercício 7
 
 function retornaNNumerosPares(n) {
-   // implemente sua lógica aqui
-}
+  let nPares = []
+   for(let i=0; i<n; i++){
+         nPares.push(i * 2)
+      }
+      // console.log(nPares)   // RESPOSTA NO CONSOLE
+      return nPares
+   }
+
+
+
+// function retornaNNumerosPares(n) {
+// let nPares = []
+// for(let i=0; i<n; i++){
+//    if(i % 2 === 0) {
+//       nPares.push(i)
+//    }
+// }
+// console.log(nPares)
+// return nPares
+// }
+
+// nPares = []
+//    let numPorNum = n / n
+//    nPares.push(numPorNum)
 
 // Exercício 8
 
 function checaTriangulo(a, b, c) {
-  // implemente sua lógica aqui
+//   if(a === b && c === b) {
+//      return "Equilátero"
+//   } else if (a !== b  )
 }
 
 // Exercício 9
 
 function comparaDoisNumeros(num1, num2) {
-   // implemente sua lógica aqui
+   let objeto = [{maiorNumero: 0, maiorDivisivelporMenor: 0, diferenca: 0}]
+
+   if(num1 > num2) {
+      objeto.forEach((item) => {
+            item.maiorNumero = num1
+         if(item.maiorNumero % num2 === 0) {
+            item.maiorDivisivelporMenor = true
+         } else {
+            item.maiorDivisivelporMenor = false
+         }
+         item.diferenca = num1 - num2
+      })
+   return objeto[0];
+
+   } else if (num2 > num1) {
+      objeto.forEach((item) => {
+            item.maiorNumero = num2
+         if(item.maiorNumero % num1 === 0) {
+            item.maiorDivisivelporMenor = true
+         } else {
+            item.maiorDivisivelporMenor = false
+         }
+            item.diferenca = num2 - num1
+      })
+   }
+   // console.log(objeto[0])   // RESPOSTA NO CONSOLE
+   return objeto[0];
 }
+
+
 
 // Exercício 10
 
