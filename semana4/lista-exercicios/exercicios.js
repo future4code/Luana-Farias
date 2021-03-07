@@ -245,10 +245,17 @@ const arrayDePessoas = [
    { nome: "Artur", idade: 89 }
 ]
 
+// let criancas = array.filter((criancas) => {
+//    return criancas.idade > 20
+// })
+
 // Exercício 16, letra A
 
 function maioresDe18(arrayDePessoas) {
-   // implemente sua lógica aqui
+   let pessoas = arrayDePessoas.filter((pessoa) => {
+      return pessoa.idade >= 20
+   })
+   return pessoas
 }
 
 // Exercício 16, letra B
