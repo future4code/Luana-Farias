@@ -105,9 +105,24 @@ function retornaNNumerosPares(n) {
 // Exercício 8
 
 function checaTriangulo(a, b, c) {
-   //   if(a === b && c === b) {
-   //      return "Equilátero"
-   //   } else if (a !== b  )
+   let count = 0;
+   if (a === b) {
+      count++
+   }if (c === a) {
+      count++
+   } if (c === b) {
+      count++
+   }
+   //console.log(a,b,c,count)
+   if (count === 1) {
+      return "Isósceles"
+   } else if (count === 0) {
+      return "Escaleno"
+   } else {
+      return "Equilátero"
+   }
+
+
 }
 
 // Exercício 9
@@ -266,56 +281,114 @@ function menoresDe18(arrayDePessoas) {
 // Exercício 17, letra A
 
 function multiplicaArrayPor2(array) {
-   // implemente sua lógica aqui
+
+   for(var i = 0;i < array.length; i++){
+      array[i] = array[i] * 2
+   }
+   return array
+
+
+   // for(itemArr of array){
+   //    itemArr = itemArr*2  //esse não funciona porque o itemArr não é o valor do array de verdade, é apenas uma chave que o js usa para identificar. 
+   //    console.log(itemArr)  //https://stackoverflow.com/questions/41383519/changing-the-value-of-an-item-in-a-for-of-loop
+   // }
+ 
+   // array.forEach((itemArr) => {
+   //  itemArr = itemArr * 2     //mesma coisa aqui.
+   //  return array
+   // })
 }
 
 // Exercício 17, letra B
 
 function multiplicaArrayPor2S(array) {
-   // implemente sua lógica aqui
+  const multiplicaPor2Sring = array.map((num2) => {
+      return (num2 * 2).toString()
+   })
+   return multiplicaPor2Sring
 }
 
 // Exercício 17, letra C
 
 function verificaParidade(array) {
-   // implemente sua lógica aqui
+   const verificaPar =array.map((par) => {
+      if(par % 2 === 0){
+         return `${par} é par`
+      } else {
+         return `${par} é impar`
+      } 
+   })
+   console.log(verificaPar)
+   return verificaPar
 }
 
 // Exercício 18
 
-const pessoas = [
-   { nome: "Paula", idade: 12, altura: 1.8 },
-   { nome: "João", idade: 20, altura: 1.3 },
-   { nome: "Pedro", idade: 15, altura: 1.9 },
-   { nome: "Luciano", idade: 22, altura: 1.8 },
-   { nome: "Artur", idade: 10, altura: 1.2 },
-   { nome: "Soter", idade: 70, altura: 1.9 }
-]
-
 //Exercício 18, letra A
 
 function retornaPessoasAutorizadas() {
-   // implemente sua lógica aqui
+   const pessoas = [
+      { nome: "Paula", idade: 12, altura: 1.8 },
+      { nome: "João", idade: 20, altura: 1.3 },
+      { nome: "Pedro", idade: 15, altura: 1.9 },
+      { nome: "Luciano", idade: 22, altura: 1.8 },
+      { nome: "Artur", idade: 10, altura: 1.2 },
+      { nome: "Soter", idade: 70, altura: 1.9 }
+   ]
+
+   const permitidos = pessoas.filter((pode) => {
+      return (pode.idade > 14) && (pode.idade < 60) && (pode.altura > 1.5)
+   })
+   return permitidos
 }
+
+
 
 
 // Exercício 18, letra B
 
 function retornaPessoasNaoAutorizadas() {
-   // implemente sua lógica aqui
+   const pessoas = [
+      { nome: "Paula", idade: 12, altura: 1.8 },
+      { nome: "João", idade: 20, altura: 1.3 },
+      { nome: "Pedro", idade: 15, altura: 1.9 },
+      { nome: "Luciano", idade: 22, altura: 1.8 },
+      { nome: "Artur", idade: 10, altura: 1.2 },
+      { nome: "Soter", idade: 70, altura: 1.9 }
+   ]
+
+   const naoAutorizados = pessoas.filter((naoPode) => {
+      return (naoPode.idade < 14) || (naoPode.idade > 60) || (naoPode.altura < 1.5)
+   })
+   return naoAutorizados
 }
 
 //Exercício 19
-
-const consultas = [
-   { nome: "João", genero: "masculino", cancelada: false, dataDaConsulta: "01/10/2019" },
-   { nome: "Pedro", genero: "masculino", cancelada: true, dataDaConsulta: "02/10/2019" },
-   { nome: "Paula", genero: "feminino", cancelada: false, dataDaConsulta: "03/11/2019" },
-   { nome: "Márcia", genero: "feminino", cancelada: true, dataDaConsulta: "04/11/2019" }
-]
-
 function retornaEmailConsulta() {
-   // implemente sua lógica aqui
+   const consultas = [
+      { nome: "João", genero: "masculino", cancelada: false, dataDaConsulta: "01/10/2019" },
+      { nome: "Pedro", genero: "masculino", cancelada: true, dataDaConsulta: "02/10/2019" },
+      { nome: "Paula", genero: "feminino", cancelada: false, dataDaConsulta: "03/11/2019" },
+      { nome: "Márcia", genero: "feminino", cancelada: true, dataDaConsulta: "04/11/2019" }
+   ]
+   
+   const confirmaConsulta = consultas.map((email) => {
+      if(email.cancelada === true) {
+         if(email.genero === "masculino") {
+            return `Olá, Sr. ${email.nome}. Infelizmente, sua consulta marcada para o dia ${email.dataDaConsulta} foi cancelada. Se quiser, pode entrar em contato conosco para remarcá-la.`
+         } else {
+            return `Olá, Sra. ${email.nome}. Infelizmente, sua consulta marcada para o dia ${email.dataDaConsulta} foi cancelada. Se quiser, pode entrar em contato conosco para remarcá-la.`
+         }
+      } else {
+         if (email.genero === "masculino") {
+            return `Olá, Sr. ${email.nome}. Estamos enviando esta mensagem para lembrá-lo da sua consulta no dia ${email.dataDaConsulta}. Por favor, acuse o recebimento deste-email.`
+         } else {
+            return `Olá, Sra. ${email.nome}. Estamos enviando esta mensagem para lembrá-la da sua consulta no dia ${email.dataDaConsulta}. Por favor, acuse o recebimento deste-email.`
+         }
+      }
+   })
+   console.log(confirmaConsulta)
+   return confirmaConsulta
 }
 
 //Exercício 20
