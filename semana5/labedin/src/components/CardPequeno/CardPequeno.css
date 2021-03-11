@@ -1,0 +1,32 @@
+.endereco-pai {
+    width: 40%;
+    /* border: 2px solid red; */
+    margin: 0.7%;
+}
+
+
+.endereco-container {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    /* justify-content: center; */
+    border: 1px solid rgb(61, 61, 61);
+    padding: 3%;
+}
+
+
+.endereco-img {
+    width: 60px;
+    padding: 2%;
+}
+
+p > a {
+    text-decoration: none;
+    color: rgb(74, 83, 206);
+}
+
+.endereco-container:hover {
+    background-color: rgb(211, 211, 211);
+    cursor: pointer;
+}
+
