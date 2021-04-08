@@ -35,8 +35,8 @@ class App extends React.Component {
   onChangeInput = (event) => {
     const {name, value} = event.target
     this.setState({ [name]: value })
-    // this.setState({ inputName: event.target.value})
-    // console.table(this.state)
+
+    // console.table(this.state.registerList)
   }
 
 
@@ -79,26 +79,35 @@ class App extends React.Component {
   }
 
   deleteUser = (userId) => {
-    axios.delete(`https://us-central1-labenu-apis.cloudfunctions.net/labenusers/users/${userId}`,
-    {
-      headers: {
-       Authorization: "luana-farias-cruz"
+    if(window.confirm("Você tem certeza que deseja deletar?")) {
+      axios.delete(`https://us-central1-labenu-apis.cloudfunctions.net/labenusers/users/${userId}`,
+      {
+        headers: {
+         Authorization: "luana-farias-cruz"
+        }
       }
+      ).then((res) => {
+        this.getNameList()
+      }).catch((err) => {
+        alert("Ops! Algo deu errado. Tente novamente mais tarde.")
+      })
     }
-    ).then((res) => {
-      this.getNameList()
-    }).catch((err) => {
-      alert("Ops! Algo deu errado. Tente novamente mais tarde.")
-    })
+
   }
 
-  // searchUser = (name, email) => {
-  //   axios.get(`https://us-central1-labenu-apis.cloudfunctions.net/labenusers/users/search?name=${name}&email=${email}`,
+
+
+  // searchUser = (event) => {
+  //   const {name, value} = event.target
+  //   this.setState({ [name]: value })
+  //   axios.get(`https://us-central1-labenu-apis.cloudfunctions.net/labenusers/users/search?name=${event}&email=`,
   //   {
   //     headers: {
   //       Authorization: "luana-farias-cruz"
   //     }
   //   }).then((res) => {
+  //     this.setState({ registerList: res.data})
+  //     console.table(res.data)
   //     this.getNameList()
   //   })
   // }
