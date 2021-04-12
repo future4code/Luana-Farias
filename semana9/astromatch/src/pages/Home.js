@@ -10,8 +10,8 @@ function Home (){
 
     //guarda as infos da pessoa (getUsers)
     const [person, setPerson] = useState({});
-    //guarda as infos do match (choosePerson)
-    const [match, setMatch] = useState([])
+    // //guarda as infos do match (choosePerson)
+    // const [match, setMatch] = useState([])
 
     useEffect(() => {
         getUsers()
@@ -25,13 +25,13 @@ function Home (){
         })
       }
 
-     //pega os matches
-    const getMatches = () => {
-      api.getMatches().then(r => {
-          // console.log(r)
-         setMatch(r)
-      })
-    }
+    //  //pega os matches
+    // const getMatches = () => {
+    //   api.getMatches().then(r => {
+    //       // console.log(r)
+    //      setMatch(r)
+    //   })
+    // }
 
     //dá like ou deslike
     const choosePerson = (id,choice) => {
@@ -45,12 +45,12 @@ function Home (){
           getUsers()
   }
 
-    //limpa matches
-    const cleanMatches = () => {
-      api.clear().then(r => {
-        console.log(r)
-      })
-    }
+    // //limpa matches
+    // const cleanMatches = () => {
+    //   api.clear().then(r => {
+    //     console.log(r)
+    //   })
+    // }
        
     return (
         <>
@@ -59,7 +59,7 @@ function Home (){
 
         <button onClick={() => choosePerson(person.id,true)}>Like</button>
         <button onClick={() => choosePerson(person.id,false)}>Dislike</button>
-        <button onClick={cleanMatches}>limpa matches</button>
+        {/* <button onClick={cleanMatches}>limpa matches</button> */}
         </>
     )
 }
