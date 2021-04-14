@@ -1,10 +1,13 @@
+import Routes from './routes/Routes'
 
-function App() {
-  return (
-    <div>
-    
-    </div>
-  );
-}
+const App = () => <Routes/>
+
+// function App() {
+//   return (
+//     <div>
+//       <Router/>
+//     </div>
+//   );
+// }
 
 export default App;

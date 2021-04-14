@@ -1,9 +1,9 @@
-const TripDetailsPage = () => {
+
+
+export const TripDetailsPage = () => {
     return (
         <>
-
+            <h1>TripDetailsPage</h1>
         </>
     )
 }
-
-export default TripDetailsPage;
