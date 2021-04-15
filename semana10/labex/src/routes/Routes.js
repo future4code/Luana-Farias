@@ -7,10 +7,23 @@ import { LoginPage } from "../pages/LoginPage";
 import { AdminHomepage } from "../pages/AdminHomepage";
 import { CreateTripPage } from "../pages/CreateTripPage";
 import { TripDetailsPage } from "../pages/TripDetailsPage";
+import { auth } from '../routes/auth'
 
-const privateRoute = () => {
 
-}
+    
+const PrivateRoute = ({ component: Component, ...rest}) => (
+    <Route 
+    {...rest} 
+        render={props =>
+            auth() ? (
+         <><Component {...props}/></>
+         ) : (
+         <><Redirect to={{pathname: '/login', state: { from: props.location }}} /></>
+         )
+        }
+     />
+)
+
 
 const Routes = () => {
     return (
@@ -21,7 +34,7 @@ const Routes = () => {
                 <Route exact path="/trips/list" component={ListTripsPage} />
                 <Route exact path="/trips/application" component={ApplicationFormPage} />
                 <Route exact path="/login" component={LoginPage} />
-                <Route exact path="/admin/trips/list" component={ AdminHomepage } />
+                <PrivateRoute path="/admin/trips/list" component={ AdminHomepage } />
                 <Route exact path="/admin/trips/create" component={ CreateTripPage } />
                 <Route exact path="/admin/trips/:id" component={ TripDetailsPage } />
             </Switch>

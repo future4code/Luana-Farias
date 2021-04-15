@@ -1,31 +1,49 @@
 import * as api from '../api/api'
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import axios from 'axios'
+import { Link } from 'react-router-dom'
+
 
 export const ListTripsPage = () => {
 
+    const [tripList, setTripList] = useState([])
 
     useEffect(() => {
-        console.log(api.trips().then(console.log))
+        getTrips()
+        console.log(tripList)
     }, [])
 
     // const getTrips = () => {
     //     api.trips().then((res) => {
-    //     console.log(res)
+    //         setTripList(res.trips)
+    //     console.log(res.trips)
     //     })
     // }
 
-    // const teste = () => {
-    //     axios.get('https://us-central1-labenu-apis.cloudfunctions.net/labeX/luana-cruz/trips')
-    //     .then((r) => {
-    //         console.log(r.data)
-    //     })   
-    // }
+    const getTrips = () => {
+        axios.get('https://us-central1-labenu-apis.cloudfunctions.net/labeX/luana-cruz/trips')
+        .then(r => setTripList(r.data.trips))
+        .catch(err => console.log(err))
+    }
+
+    const renderTripList = tripList.map(item => {
+        return (
+            <>
+            <Link to={`/admin/trips/${item.id}`}>
+            <h3>{item.name}</h3>
+            <p>{item.description}</p>
+            <p>{item.planet}</p>
+            <p>{item.durationInDays}</p>
+            <p>{item.date}</p>
+            </Link>
+            </>
+        )
+    })
     
     return (
         <>
-        <h1>ListTripsPage</h1>
-        {/* <button onClick={teste}>Pegar viagens</button> */}
+        <h1>{tripList ? renderTripList : "carregando..." }</h1>
+        <button onClick={getTrips}>Pegar viagens</button>
         </>
     )
 }
