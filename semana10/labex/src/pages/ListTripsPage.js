@@ -1,12 +1,14 @@
 import * as api from '../api/api'
 import { useEffect, useState } from 'react'
 import axios from 'axios'
-import { Link } from 'react-router-dom'
+import { Link, useHistory } from 'react-router-dom'
 
 
 export const ListTripsPage = () => {
 
     const [tripList, setTripList] = useState([])
+
+    const history = useHistory();
 
     useEffect(() => {
         getTrips()
@@ -44,6 +46,7 @@ export const ListTripsPage = () => {
         <>
         <h1>{tripList ? renderTripList : "carregando..." }</h1>
         <button onClick={getTrips}>Pegar viagens</button>
+        <button onClick={() => history.goBack()}>voltar</button>
         </>
     )
 }

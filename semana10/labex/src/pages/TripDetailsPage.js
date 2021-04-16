@@ -1,12 +1,13 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useHistory, useParams } from "react-router-dom";
   
 
 
 export const TripDetailsPage = () => {
 
     const [tripDetail, setTripDetail] = useState([]);
+    const history = useHistory();
 
     useEffect(() => {
         getTripDetail(id,token)
@@ -39,7 +40,8 @@ export const TripDetailsPage = () => {
             <p>Duração em dias: {tripDetail.durationInDays}</p>
             <p>Planeta: {tripDetail.planet}</p>
             {/* {tripDetail.candidates.map {name: "João Golias", age: 22, country: "Havaí", profession: "Surfista Profissional", applicationText: "Adoro} */}
-            <button onClick={() => getTripDetail(id,token)}>pegar</button>
+
+            <button onClick={() => history.goBack()}>voltar</button>
 
         </>
     )
