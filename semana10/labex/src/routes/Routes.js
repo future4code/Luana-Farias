@@ -36,7 +36,7 @@ const Routes = () => {
                 <Route exact path="/login" component={LoginPage} />
                 <PrivateRoute path="/admin/trips/list" component={ AdminHomepage } />
                 <Route exact path="/admin/trips/create" component={ CreateTripPage } />
-                <Route exact path="/admin/trips/:id" component={ TripDetailsPage } />
+                <PrivateRoute exact path="/admin/trips/:id" component={ TripDetailsPage } />
             </Switch>
         </BrowserRouter>
         </>
