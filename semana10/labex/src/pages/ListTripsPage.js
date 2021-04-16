@@ -28,7 +28,7 @@ export const ListTripsPage = () => {
 
     const renderTripList = tripList.map(item => {
         return (
-            <>
+            <div key={item.id}>
             <Link to={`/admin/trips/${item.id}`}>
             <h3>{item.name}</h3>
             <p>{item.description}</p>
@@ -36,7 +36,7 @@ export const ListTripsPage = () => {
             <p>{item.durationInDays}</p>
             <p>{item.date}</p>
             </Link>
-            </>
+            </div>
         )
     })
     

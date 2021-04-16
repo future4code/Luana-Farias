@@ -35,7 +35,7 @@ const Routes = () => {
                 <Route exact path="/trips/application" component={ApplicationFormPage} />
                 <Route exact path="/login" component={LoginPage} />
                 <PrivateRoute path="/admin/trips/list" component={ AdminHomepage } />
-                <Route exact path="/admin/trips/create" component={ CreateTripPage } />
+                <PrivateRoute exact path="/admin/trips/create" component={ CreateTripPage } />
                 <PrivateRoute exact path="/admin/trips/:id" component={ TripDetailsPage } />
             </Switch>
         </BrowserRouter>
