@@ -89,6 +89,8 @@ export const ApplicationFormPage = () => {
 
             <input type="number" placeholder="Idade" name="age" onChange={onChange} />
 
+            <input></input>
+
             <Hint 
                 options={options} allowTabFill>
                     <input value={country}
