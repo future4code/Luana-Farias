@@ -1,7 +1,8 @@
 import * as api from '../api/api'
 import { useEffect, useState } from 'react'
 import axios from 'axios'
-import { Link, useHistory } from 'react-router-dom'
+import { useHistory } from 'react-router-dom'
+import TripList from '../components/TripList/TripList'
 
 
 export const ListTripsPage = () => {
@@ -27,25 +28,13 @@ export const ListTripsPage = () => {
         .then(r => setTripList(r.data.trips))
         .catch(err => console.log(err))
     }
-
-    const renderTripList = tripList.map(item => {
-        return (
-            <div key={item.id}>
-            <Link to={`/admin/trips/${item.id}`}>
-            <h3>{item.name}</h3>
-            <p>{item.description}</p>
-            <p>{item.planet}</p>
-            <p>{item.durationInDays}</p>
-            <p>{item.date}</p>
-            </Link>
-            </div>
-        )
-    })
     
     return (
         <>
-        <h1>{tripList ? renderTripList : "carregando..." }</h1>
-        <button onClick={getTrips}>Pegar viagens</button>
+        <TripList 
+                tripList={tripList}
+                />
+
         <button onClick={() => history.goBack()}>voltar</button>
         </>
     )

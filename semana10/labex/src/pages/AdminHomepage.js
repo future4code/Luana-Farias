@@ -1,13 +1,14 @@
 import { useState, useEffect } from 'react'
 import axios from 'axios'
 import { Link } from 'react-router-dom'
+import AdminHome from '../components/AdminHome/AdminHome'
 
 
 export const AdminHomepage = () => {
 
     const [tripList, setTripList] = useState([])
 
-    const token = window.localStorage.getItem("token")
+    // const token = window.localStorage.getItem("token")
 
     useEffect(() => {
         getTrips()
@@ -34,27 +35,22 @@ export const AdminHomepage = () => {
         .catch(e => console.log(e.response))
     }
 
-    const renderTripList = tripList.map(item => {
-        return (
-            <div key={item.id}>
-            <h3>{item.name}</h3>
-            <p>{item.date}</p>
-            <button onClick={() => deleteTrip(item.id,token)}>x</button>
-            <Link to={`/admin/trips/${item.id}`}>
-                <button>Detalhes</button>
-            </Link>
-            </div>
-        )
-    })
     
     return (
         <>
         <h3>Admin Home</h3>
+
+        <AdminHome 
+                    tripList={tripList}
+                    deleteTrip={deleteTrip}
+                    />
+                    
+
         <Link to={'/admin/trips/create'}>
                 <button>Criar Viagem</button>
-            </Link>
+        </Link>
+
         <button>Logout</button>
-        <h1>{tripList ? renderTripList : "carregando..." }</h1>
         
         </>
     )

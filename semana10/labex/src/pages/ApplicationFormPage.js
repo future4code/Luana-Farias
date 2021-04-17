@@ -2,8 +2,7 @@ import { useHistory } from "react-router"
 import { useEffect, useState } from 'react' 
 import axios from 'axios'
 import { useForm } from '../hooks/useForm'
-import { countries } from '../utils/countries'
-import { Hint } from 'react-autocomplete-hint'
+import ApplicationForm from '../components/ApplicationForm/ApplicationForm'
 
 
 
@@ -11,7 +10,7 @@ export const ApplicationFormPage = () => {
     const history = useHistory();
 
     const [tripList, setTripList] = useState([]);
-    const [form, setForm, onChange, resetForm] = useForm({name: "", applicationText: "", profession: "", age: null, country: "", select: ""});
+    const [form, onChange, resetForm] = useForm({name: "", applicationText: "", profession: "", age: null, country: "", select: ""});
     const [country, setCountry] = useState('')
     
 
@@ -40,7 +39,7 @@ export const ApplicationFormPage = () => {
 
 
     const onSubmitForm = (e) => {
-        e.preventDefault();
+        e.preventDefault()
 
         const body = {
             name: form.name, 
@@ -49,67 +48,26 @@ export const ApplicationFormPage = () => {
             applicationText: form.applicationText,
             country: country
         }
-
-        makePostRequest(body, form.select)
-
         
+        makePostRequest(body, form.select)   
     }
 
-    //renderiza viagens no select
-    const renderSelect = tripList.map(item => {
-        return (
-            <option value={item.id}>{item.name}</option> //coloquei o id no value
-        )
-    })
-
-    //map no array de países do outro arquivo
-    const con = countries.map(res => res.nome_pais)
-    
-    //filtra o array de países
-    const filteredList = con.filter(item => {
-        return item.toLowerCase().includes(form.country.toLowerCase())
-        })
-
-    // guarda o array de paises pro compontente Hint usar
-    const options = filteredList
-
-    console.log(form.select)
 
     return (
         <>
         <h1>application Form</h1>
 
-        <form onSubmit={onSubmitForm}>
+        <ApplicationForm tripList={tripList}
+                        form={form}
+                        country={country}
+                        setCountry={setCountry}
+                        onChange={onChange}
+                        resetForm={resetForm}
+                        onSubmitForm={onSubmitForm}
+                        />
 
-            {tripList ? ( <select name="select" value={form.select} onChange={onChange}> {renderSelect} </select> ) : ( "carregando...") }
-        
-            <input type="text" placeholder={"Nome"} name="name" onChange={onChange}/>
+        <button onClick={history.goBack}>Voltar</button>
 
-            <input type="text" placeholder="Profissão" name="profession" onChange={onChange}/>
-
-            <input type="number" placeholder="Idade" name="age" onChange={onChange} />
-
-            <input></input>
-
-            <Hint 
-                options={options} allowTabFill>
-                    <input value={country}
-                            placeholder="País"
-                            name="country"
-                            onChange={e => setCountry(e.target.value)} 
-                    />
-            </Hint>
-
-            <textarea name="applicationText" onChange={onChange}></textarea>
-
-            <button>Enviar</button>
-
-          {/* <select>
-              <option>País</option>
-              {renderCountries}
-          </select> */} 
-        </form>
-        <button onClick={() => history.goBack()}>voltar</button>
         </>
     )
 }

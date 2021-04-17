@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { useHistory, useParams } from "react-router-dom";
+import { Link, useHistory, useParams } from "react-router-dom";
 import TripDetail from '../components/TripDetail/TripDetail'
   
 
@@ -33,6 +33,10 @@ export const TripDetailsPage = () => {
         <TripDetail 
             tripDetail={tripDetail} />
         <button onClick={() => history.goBack()}>voltar</button>
+
+        <Link to={'/trips/application'}>
+            <button>Aplicar</button>
+        </Link>
         </>
     )
 }

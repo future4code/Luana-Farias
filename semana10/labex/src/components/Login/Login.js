@@ -2,7 +2,7 @@
 
 const Login = (props) => {
 
-    // const [onChange, value, name, handleClick] = props
+    // const {email, password} = form.props
 
     return (
         <>
