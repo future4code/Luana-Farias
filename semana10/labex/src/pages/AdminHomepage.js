@@ -1,19 +1,19 @@
 import { useState, useEffect } from 'react'
 import axios from 'axios'
-import { Link } from 'react-router-dom'
+import { Link, useHistory } from 'react-router-dom'
 import AdminHome from '../components/AdminHome/AdminHome'
 
 
 export const AdminHomepage = () => {
 
     const [tripList, setTripList] = useState([])
+    const history = useHistory()
 
     // const token = window.localStorage.getItem("token")
 
     useEffect(() => {
         getTrips()
     }, [])
-
 
     const getTrips = () => {
         axios.get('https://us-central1-labenu-apis.cloudfunctions.net/labeX/luana-cruz/trips')
@@ -36,21 +36,32 @@ export const AdminHomepage = () => {
     }
 
     
+    const logout = () => {
+        window.localStorage.removeItem("token")
+        history.push("/login")    
+   }
+
+    
     return (
         <>
-        <h3>Admin Home</h3>
-
-        <AdminHome 
-                    tripList={tripList}
-                    deleteTrip={deleteTrip}
-                    />
-                    
+        <button onClick={history.goBack}>Voltar</button>
+        <h3>Painel Administrador</h3>               
+        <hr />
 
         <Link to={'/admin/trips/create'}>
                 <button>Criar Viagem</button>
         </Link>
 
-        <button>Logout</button>
+        
+        <button onClick={logout}>Logout</button>
+
+        <hr/>
+        <br/>
+
+        <AdminHome 
+                    tripList={tripList}
+                    deleteTrip={deleteTrip}
+                    />
         
         </>
     )

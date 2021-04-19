@@ -12,5 +12,5 @@ export const useForm = (initialForm) => {
         setForm(initialForm);
     };
 
-    return [form, setForm, onChange, resetForm]
+    return [form, onChange, resetForm]
 }

@@ -13,7 +13,7 @@ export const TripDetailsPage = () => {
 
     useEffect(() => {
         getTripDetail(id,token)
-    }, [])
+    }, [tripDetail])
     
 
       const getTripDetail = (id, token) => {
@@ -28,15 +28,37 @@ export const TripDetailsPage = () => {
       }
 
 
+      const approveCandidate = (candidateId, decide, id, token) => {
+
+          const body = {
+            "approve": decide
+        }
+
+          axios.put(`https://us-central1-labenu-apis.cloudfunctions.net/labeX/luana-cruz/trips/${id}/candidates/${candidateId}/decide`, 
+          body,
+          {
+              headers: {
+                  'Content-Type' : 'application/json',
+                  auth : token
+              }
+          })
+      }
+
+
     return (
         <>
-        <TripDetail 
-            tripDetail={tripDetail} />
         <button onClick={() => history.goBack()}>voltar</button>
 
         <Link to={'/trips/application'}>
             <button>Aplicar</button>
         </Link>
+        <hr/>
+        <TripDetail 
+            tripDetail={tripDetail}
+            id={id}
+            token={token}
+            approveCandidate={approveCandidate} />
+
         </>
     )
 }

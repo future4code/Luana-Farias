@@ -12,6 +12,7 @@ const CreateTrip = (props) => {
             <input placeholder="Nome" onChange={onChange} name="name" value={form.name}/>
 
             <select onChange={onChange} name="planet" value={form.planet}>
+                <option>planeta</option>
                 <option value="Marte">Marte</option>
                 <option value="Vênus">Vênus</option>
                 <option value="Mercúrio">Mercúrio</option>
@@ -31,6 +32,7 @@ const CreateTrip = (props) => {
             <button>Criar</button>
             
         </form>
+        
         </>
     )
 }

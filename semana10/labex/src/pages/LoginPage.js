@@ -12,6 +12,14 @@ export const LoginPage = () => {
     const history = useHistory();
     const [form, onChange, resetForm] = useForm({password: "", email: ""});
 
+     const token = window.localStorage.getItem("token")
+
+    useEffect(() => {
+        if(token) {
+            history.push("/admin/trips/list")
+        }
+    })
+
     const handleClick = (e) => {
         e.preventDefault();
         resetForm();
@@ -42,6 +50,10 @@ export const LoginPage = () => {
     }
 
 
+    // const logout = () => {
+    //      window.localStorage.removeItem("token")
+    // }
+
 
     return (
         <>
@@ -53,11 +65,6 @@ export const LoginPage = () => {
             handleClick={handleClick} 
             onClick={() => login(form)}/>
 
-            {/* <Login 
-            onChange={onChange} 
-            form={form}  
-            handleClick={handleClick} 
-            onClick={() => login(form)}/> */}
             <button onClick={() => goToBackPage(history)}>Voltar</button>
         </>
     )

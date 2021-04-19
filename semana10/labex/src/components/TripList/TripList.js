@@ -1,26 +1,28 @@
-import { Link } from 'react-router-dom'
+import { Link, useHistory } from 'react-router-dom'
 
 const TripList = (props) => {
 
     const tripList = props.tripList
+  
 
     const renderTripList = tripList.map(item => {
         return (
             <div key={item.id}>
             <Link to={`/admin/trips/${item.id}`}>
-            <h3>{item.name}</h3>
+            <h2>{item.name}</h2>
             <p>{item.description}</p>
             <p>{item.planet}</p>
             <p>{item.durationInDays}</p>
             <p>{item.date}</p>
             </Link>
+            <hr/>
             </div>
         )
     })
 
     return (
         <>
-        <h1>{tripList ? renderTripList : "carregando..." }</h1>
+        {tripList ? renderTripList : "carregando..." }
         </>
     )
 }

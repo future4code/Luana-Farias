@@ -4,7 +4,6 @@ import { login } from '../routes/cordinator'
 
 
 export const Homepage = () => {
-    const history = useHistory();
     
     return (
         <>
@@ -16,8 +15,6 @@ export const Homepage = () => {
         <Link to={'/login'}>
             <button>Login</button>
         </Link>
-
-        <button onClick={() => history.goBack()}>voltar</button>
         
         </>
     )

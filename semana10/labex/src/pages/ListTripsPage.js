@@ -31,6 +31,8 @@ export const ListTripsPage = () => {
     
     return (
         <>
+        <button onClick={history.goBack}>Voltar</button>
+        <hr/>
         <TripList 
                 tripList={tripList}
                 />

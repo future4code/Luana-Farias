@@ -1,6 +1,7 @@
 import axios from "axios"
 import { useForm } from "../hooks/useForm"
 import CreateTrip from '../components/CreateTrip/CreateTrip'
+import { useHistory } from "react-router"
 
 
 export const CreateTripPage = () => {
@@ -8,6 +9,8 @@ export const CreateTripPage = () => {
     const [form, onChange, resetForm] = useForm({name: "", planet: "", date: "", description: "", durationInDays: ""})
     
     const token = window.localStorage.getItem("token");
+
+    const history = useHistory()
 
     const createTrip = (body,token) => {
         axios.post('https://us-central1-labenu-apis.cloudfunctions.net/labeX/luana-cruz/trips',
@@ -39,11 +42,13 @@ export const CreateTripPage = () => {
     
     return (
         <>
+        <button onClick={history.goBack}>Voltar</button>
         <CreateTrip 
                     form={form}
                     onChange={onChange}
                     onSubmitForm={onSubmitForm}
                     />
+
         </>
     )
 }
