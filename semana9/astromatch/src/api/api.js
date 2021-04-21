@@ -29,6 +29,6 @@ const base = ({method = "get", url = "", params = "", data = {}}) => {
 
 export const getUsers = base({url: `luana/person`})
 export const getMatches = base({url: `luana/matches`})
-export const choosePerson = (data) => base({method: "post", url: `luana/choose-person`, data})
-export const clear = base({method: "delete", url: `luana/clear`})
+export const choosePerson = (data) => base({method: "post", url: `luana/choose-person`, data})()
+export const clear = base({method: "put", url: `luana/clear`})
 

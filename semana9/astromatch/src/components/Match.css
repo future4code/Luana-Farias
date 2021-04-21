@@ -1,0 +1,23 @@
+.match__container{
+    display: flex;
+    justify-content: space-between;
+    max-width: 500px;
+    padding: 15px;
+}
+
+.match__photo {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background-size: cover;
+    object-fit: contain;
+    margin: 10px;
+    
+}
+
+.match__name {
+    display: flex;
+    flex: 2;
+    align-items: center;
+}
+
