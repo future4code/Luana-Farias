@@ -25,12 +25,21 @@
     background-color: var(--gray-50);
     width: 100vw;
     height: 100vh;
+    overflow: auto;
 }
 
-body, input, textarea, button {
+a {
+    text-decoration: none;
+}
+
+body, input, textarea, button, a {
     font: 500 1rem 'Inter', sans-serif;
     color: var(--gray-500);
     outline: none;
+}
+
+div {
+    overflow: auto;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -46,6 +55,7 @@ input {
     border: none;
     background-color: var(--gray-100);
 }
+
 
 //media queries
 
