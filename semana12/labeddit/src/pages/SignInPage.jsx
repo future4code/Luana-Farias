@@ -9,7 +9,6 @@ export const SignInPage = () => {
     const [username, handleUsername] = useInput();
 
     const onSubmitForm = (e) => {
-        console.log("entrou")
         e.preventDefault();
 
         const body = {

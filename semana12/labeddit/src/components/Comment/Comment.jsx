@@ -1,25 +1,24 @@
 import styles from './styles.module.scss'
 import ExpandLessIcon from '@material-ui/icons/ExpandLess';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+import { convertTime } from '../../utils/convertDate';
 
 
 const Comment = (props) => {
 
-    const { postDetail } = props
-
-    console.log(postDetail)
+    const { postDetail, vote, userVoteDirection } = props
 
     const renderComments = postDetail && postDetail.comments && postDetail.comments.map((post => {
         return (
         <section key={post.id} className={styles.comment}>
         <h3>{post.username}</h3>
         <p>{post.text}</p>
-        <p>Há {post.createdAt}</p>
+        <p>{convertTime(post.createdAt)}</p>
     
     <div className={styles.buttonsContainer}>
-        <button><ExpandLessIcon/></button>
-        <span>{post.userVoteDirection}</span>
-        <button><ExpandMoreIcon/></button>
+        <button onClick={() => vote(1)}><ExpandLessIcon/></button>
+        <button onClick={() => vote(0)}>{userVoteDirection}</button>
+        <button onClick={() => vote(-1)}><ExpandMoreIcon/></button>
     </div>
     </section>
         )
@@ -27,6 +26,7 @@ const Comment = (props) => {
 
     return (
         <>
+        <h3>Comentários:</h3>
         {renderComments}
         </>
 

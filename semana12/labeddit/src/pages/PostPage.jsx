@@ -14,6 +14,7 @@ export const PostPage = () => {
     const [postDetail, setPostDetail] = useState([]);
     const [commentArea, handleCommentArea] = useInput();
 
+
     useEffect(() => {
         getPostDetail(id)
     },[])
@@ -27,7 +28,6 @@ export const PostPage = () => {
         })
         .then(r => {
             setPostDetail(r.data.post)
-            console.log(postDetail)
         })
         .catch(e => console.log(e.response))
     }
@@ -43,13 +43,13 @@ export const PostPage = () => {
         })
         .then(r => {
             console.log(r.data)
+            getPostDetail(id)
         })
         .catch(e => console.log(e.response))
     }
 
 
     const onSubmitForm = (e) => {
-        console.log(commentArea)
         e.preventDefault();
 
         const body = {
@@ -57,8 +57,32 @@ export const PostPage = () => {
         }
 
         createComment(id, token, body)
-
     }
+
+    const votePost = (id,body,token) => {
+        api.put(`posts/${id}/vote`,
+        body,
+        {
+            headers: {
+                'Content-Type' : 'application/json',
+                Authorization: token
+            }
+        })
+        .then(r => {
+            // getPostDetail(id)
+            // getPosts(token)
+            console.log(r.data)
+        })
+        .catch(e => console.log(e.response))
+    }
+
+    const vote = (dir) => {
+        const body = {
+            direction: dir
+        }
+        votePost(id,body,token) 
+    }
+
 
     return (
         <section>
@@ -73,7 +97,10 @@ export const PostPage = () => {
             userVoteDirection={postDetail.userVoteDirection}
             votesCount={postDetail.votesCount}
             commentsCount={postDetail.commentsCount}
-            createdAt={postDetail.createdAt}/>
+            createdAt={postDetail.createdAt}
+            vote={vote}
+     
+            />
         <CreateComment
             onSubmitForm={onSubmitForm}
             commentArea={commentArea}
@@ -81,12 +108,14 @@ export const PostPage = () => {
             />
             </>
         ) : (
-            "carregando"
+            "carregando..."
         )}
 
 
-        <h3>Comentários:</h3>
+        
         <Comment postDetail={postDetail}
+                vote={vote}
+                userVoteDirection={postDetail.userVoteDirection}
                     />
         </section>
     )

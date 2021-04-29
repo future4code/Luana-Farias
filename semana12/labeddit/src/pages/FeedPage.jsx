@@ -16,12 +16,6 @@ export const FeedPage = () => {
         }
     },[])
 
-
-    useEffect(() => {
-        getPosts(token)
-    },[])
-
-
     const getPosts = (token) => {
         const res = api.get('posts',
         {
@@ -32,10 +26,16 @@ export const FeedPage = () => {
         })
         .then(r => {
             setFeed(r.data.posts)
-            console.log(feed)
         })
-        .catch(e => console.log(e.response))
+        .catch(e => alert(e => console.log(e.response)))
     }
+
+    useEffect(() => {
+        getPosts(token)
+    },[])
+
+
+
 
 
     const renderFeed = feed && feed.map((post) => {
@@ -50,6 +50,7 @@ export const FeedPage = () => {
             votesCount={post.votesCount}
             commentsCount={post.commentsCount}
             createdAt={post.createdAt}
+            getPosts={getPosts}
             />
         }     
     })
