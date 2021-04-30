@@ -32,7 +32,7 @@ export const SignInPage = () => {
     }
 
     return (
-        <>
+        <div className="pageContainers">
         <SignIn email={email}
                 handleEmail={handleEmail}
                 password={password}
@@ -41,6 +41,6 @@ export const SignInPage = () => {
                 handleUsername={handleUsername}
                 onSubmitForm={onSubmitForm}
                 />
-        </>
+        </div>
     )
 }

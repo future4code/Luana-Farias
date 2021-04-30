@@ -1,14 +1,15 @@
 import { useHistory } from "react-router"
 import CreatePost from "../components/CreatePost/CreatePost"
 import PostCard from "../components/PostCard/PostCard"
-import { useEffect, useState } from 'react'
-import { api } from '../services/api'
+import { useContext, useEffect, useState } from 'react'
+import { GlobalStateContext } from "../global/GlobalStateContext"
 
 export const FeedPage = () => {
 
     const history = useHistory()
     const token = window.localStorage.getItem("token")
-    const [feed, setFeed] = useState([]);
+    
+    const { states, setters, requests } = useContext(GlobalStateContext);
 
     useEffect(()=> {
         if(!token) {
@@ -16,30 +17,10 @@ export const FeedPage = () => {
         }
     },[])
 
-    const getPosts = (token) => {
-        const res = api.get('posts',
-        {
-            headers: {
-                'Content-Type':'application/json',
-                Authorization: token
-            }
-        })
-        .then(r => {
-            setFeed(r.data.posts)
-        })
-        .catch(e => alert(e => console.log(e.response)))
-    }
-
-    useEffect(() => {
-        getPosts(token)
-    },[])
 
 
-
-
-
-    const renderFeed = feed && feed.map((post) => {
-        if(feed.indexOf(post)<10) {
+    const renderFeed = states.feed && states.feed.map((post) => {
+        if(states.feed.indexOf(post)<10) {
             return <PostCard 
             key={post.id}   
             id={post.id}
@@ -50,16 +31,15 @@ export const FeedPage = () => {
             votesCount={post.votesCount}
             commentsCount={post.commentsCount}
             createdAt={post.createdAt}
-            getPosts={getPosts}
             />
         }     
     })
 
 
     return (
-        <div>
+        <div className="pageContainers">
         <CreatePost/>
-        {feed ? renderFeed : "carregando"}
+        {states.feed ? renderFeed : "carregando"}
         </div>
     )
 }

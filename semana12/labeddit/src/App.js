@@ -1,16 +1,12 @@
 import './styles/global.scss'
 import Routes from './router/Routes'
-import { useEffect, useState } from 'react';
-import { useHistory } from 'react-router';
+import GlobalState from './global/GlobalState';
 
 function App() {
-
-
-
   return (
-    <>
+    <GlobalState>
     <Routes />
-    </>
+    </GlobalState>
   );
 }
 

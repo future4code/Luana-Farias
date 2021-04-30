@@ -2,38 +2,16 @@ import styles from './styles.module.scss'
 import ExpandLessIcon from '@material-ui/icons/ExpandLess';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import { Link } from 'react-router-dom';
-import { api } from '../../services/api'
+import { GlobalStateContext } from "../../global/GlobalStateContext"
+import { useContext, useEffect, useState } from 'react'
 
 
 const PostCard = (props) => {
 
-    const {commentsCount, createdAt, id, text, title, username, userVoteDirection, vote } = props
+    const {commentsCount, createdAt, id, text, title, username, votesCount} = props
+
+    const { states, setters, requests } = useContext(GlobalStateContext);
     const token = window.localStorage.getItem("token");
-
-
-    // const votePost = (id,body,token) => {
-    //     api.put(`posts/${id}/vote`,
-    //     body,
-    //     {
-    //         headers: {
-    //             'Content-Type' : 'application/json',
-    //             Authorization: token
-    //         }
-    //     })
-    //     .then(r => {
-    //         getPostDetail(id)
-    //         getPosts(token)
-    //         console.log(r.data)
-    //     })
-    //     .catch(e => console.log(e.response))
-    // }
-
-    // const vote = (dir) => {
-    //     const body = {
-    //         direction: dir
-    //     }
-    //     votePost(id,body,token) 
-    // }
 
 
 
@@ -45,9 +23,9 @@ const PostCard = (props) => {
             </Link>
         
         <div className={styles.buttonsContainer}>
-            <button onClick={() => vote(1)}><ExpandLessIcon/></button>
-            <button onClick={() => vote(0)}>{userVoteDirection}</button>
-            <button onClick={() => vote(-1)}><ExpandMoreIcon/></button>
+            <button onClick={() => requests.votePost(1,id)}><ExpandLessIcon/></button>
+            <button onClick={() => requests.votePost(0,id)}>{votesCount}</button>
+            <button onClick={() => requests.votePost(-1,id)}><ExpandMoreIcon/></button>
 
             <p>{commentsCount && commentsCount > 1 ? `${commentsCount} comentários` : `${commentsCount} comentário`}</p>
         </div>

@@ -6,7 +6,6 @@ const SignIn = (props) => {
 
 
     return (
-        <body>
         <form onSubmit={onSubmitForm} className={styles.formContainer}>
             <h2>Faça seu cadastro</h2>
             <input type="text" name="username" value={username} onChange={handleUsername} placeholder="Nome de usuário"/>
@@ -14,7 +13,6 @@ const SignIn = (props) => {
             <input type="password" name="password" value={password} onChange={handlePassword} placeholder="Senha"/>
             <button>Cadastrar</button>
         </form>
-        </body>
     )
 }
 

@@ -38,7 +38,7 @@ export const LoginPage = () => {
 
 
     return (
-        <>
+        <div className="pageContainers">
         <LoginForm
             email={email}
             handleEmail={handleEmail}
@@ -46,6 +46,6 @@ export const LoginPage = () => {
             handlePassword={handlePassword}
             onSubmitForm={onSubmitForm}
             />
-        </>
+        </div>
     )
 }
