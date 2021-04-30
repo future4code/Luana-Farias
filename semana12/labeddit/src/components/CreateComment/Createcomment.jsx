@@ -1,5 +1,6 @@
 import styles from './styles.module.scss'
 import useInput from '../../hooks/useInput'
+import { ButtonSecondary } from '../Button/Button'
 
 const CreateComment = (props) => {
 
@@ -12,7 +13,8 @@ const CreateComment = (props) => {
         <form onSubmit={onSubmitForm} className={styles.createCommentContainer}>
         <h3>Deixe seu comentário</h3>
         <textarea value={commentArea} onChange={handleCommentArea} placeholder="Digite seu comentário..."/>
-        <button>Comentar</button>
+        {/* <button>Comentar</button> */}
+        <ButtonSecondary buttonText={"Comentar"}/> 
         </form>
     )
 }

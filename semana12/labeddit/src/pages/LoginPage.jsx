@@ -3,6 +3,12 @@ import useInput from '../hooks/useInput';
 import { goToFeed } from "../router/cordinator";
 import { api } from '../services/api'
 import { useHistory } from "react-router"
+import Header from "../components/Header/Header";
+import { token } from '../utils/token'
+import { useEffect } from "react";
+import { useContext } from "react";
+import { GlobalStateContext } from "../global/GlobalStateContext";
+import { HistoryOutlined } from "@material-ui/icons";
 
 export const LoginPage = () => {
 
@@ -10,8 +16,18 @@ export const LoginPage = () => {
     const [password, handlePassword] = useInput();
     const history = useHistory();
 
+    const { states, setters } = useContext(GlobalStateContext);
+
+
+    useEffect(()=> {
+        if(token) {
+        history.push('/')
+        }
+    },[token])
+
 
     const login = (body) => {
+        setters.setIsLoading(true)
         const res = api.post('login',
         body,
         {
@@ -20,8 +36,10 @@ export const LoginPage = () => {
             }
         })
         .then(res => {
+            setters.setIsLoading(false)
             window.localStorage.setItem('token', res.data.token)
-            goToFeed(history)
+            history.push("/")
+            // goToFeed()
         })
         .catch(e => console.log(e.response))
     }
@@ -34,10 +52,14 @@ export const LoginPage = () => {
             password
         }
         login(body)
+        history.push('/')
+        // goToFeed(history)
     }
 
 
     return (
+        <>
+        <Header />
         <div className="pageContainers">
         <LoginForm
             email={email}
@@ -47,5 +69,6 @@ export const LoginPage = () => {
             onSubmitForm={onSubmitForm}
             />
         </div>
+        </>
     )
 }

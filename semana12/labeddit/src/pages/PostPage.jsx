@@ -6,13 +6,16 @@ import PostCard from '../components/PostCard/PostCard'
 import { api } from '../services/api'
 import useInput from '../hooks/useInput'
 import { GlobalStateContext } from '../global/GlobalStateContext'
+import Header from '../components/Header/Header'
+import { token } from '../utils/token'
 
 
 export const PostPage = () => {
 
     const { id } = useParams();
-    const token = window.localStorage.getItem("token");
+    // const token = window.localStorage.getItem("token");
     const [commentArea, handleCommentArea] = useInput();
+  
 
     const { states, setters, requests } = useContext(GlobalStateContext);
 
@@ -53,6 +56,8 @@ export const PostPage = () => {
 
 
     return (
+        <>
+        <Header/>
         <div className="pageContainers">
         {states && states.postDetails ? (
             <>
@@ -85,5 +90,6 @@ export const PostPage = () => {
                 id={id}
                     />
         </div>
+        </>
     )
 }

@@ -1,4 +1,5 @@
 import styles from './styles.module.scss'
+import { ButtonSecondary } from '../Button/Button'
 
 const SignIn = (props) => {
 
@@ -11,7 +12,8 @@ const SignIn = (props) => {
             <input type="text" name="username" value={username} onChange={handleUsername} placeholder="Nome de usuário"/>
             <input type="email" name="email" value={email} onChange={handleEmail} placeholder="E-mail"/>
             <input type="password" name="password" value={password} onChange={handlePassword} placeholder="Senha"/>
-            <button>Cadastrar</button>
+            {/* <button>Cadastrar</button> */}
+            <ButtonSecondary buttonText={"Cadastrar"}/>
         </form>
     )
 }

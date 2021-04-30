@@ -2,14 +2,16 @@ import React,{ useEffect, useState } from 'react'
 import { GlobalStateContext } from './GlobalStateContext'
 import { api } from '../services/api'
 import { HowToVote, PinDropSharp } from '@material-ui/icons';
+import { token } from '../utils/token'
 
 
  const GlobalState = (props) => {
 
     const [feed, setFeed] = useState([]);
     const [postDetails, setPostDetails] = useState({});
-    const [vote, setVote] = useState({})
-    const token = window.localStorage.getItem("token")
+    const [vote, setVote] = useState({});
+    const [isLoading, setIsLoading] = useState(false);
+    // const token = window.localStorage.getItem("token")
 
     useEffect(() => {
       getPosts(token)
@@ -87,8 +89,8 @@ import { HowToVote, PinDropSharp } from '@material-ui/icons';
         .catch(e=> console.log(e.response))
     }
 
-    const states = { feed, postDetails };
-    const setters = { setFeed, setPostDetails }
+    const states = { feed, postDetails, isLoading };
+    const setters = { setFeed, setPostDetails, setIsLoading }
     const requests = { getPosts, getPostDetail, votePost, makeVoteComment }
 
     return (

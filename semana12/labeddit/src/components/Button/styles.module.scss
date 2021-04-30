@@ -1,0 +1,25 @@
+
+.buttonPrimary {
+    padding: 0.8rem;
+    border-radius: 1.3rem;
+    border: none;
+    background-color: var(--hotpink);
+    color: var(--white);
+
+}
+
+
+.buttonSecondary {
+    padding: 0.8rem;
+    border-radius: 1.3rem;
+    border: 1px solid var(--hotpink);
+    color: var(--white);
+    background: transparent;
+    color: var(--hotpink);
+
+    &:hover {
+       background-color: var(--hotpink-100);
+       border: 1px solid var(--hotpink-100);
+       color: var(--white);
+    }
+}

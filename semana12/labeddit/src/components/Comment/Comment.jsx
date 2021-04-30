@@ -27,7 +27,7 @@ const Comment = (props) => {
 
     return (
         <>
-       <h3>Comentários:</h3>
+       {renderComments && renderComments.length > 0 && (<h3>Comentários:</h3>)}
         {renderComments}
         </>
 

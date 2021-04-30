@@ -10,7 +10,6 @@
     justify-content: center;
     gap: 1rem;
 
-
     input {
         width: 70%;
         height: 10%;
@@ -21,5 +20,12 @@
         &:focus {
             outline: none;
         }
+    }
+
+    span {
+        cursor: pointer;
+        color: var(--hotpink-100);
+        font-size: 1.6rem;
+        font-weight: 600;
     }
 }

@@ -3,19 +3,48 @@ import CreatePost from "../components/CreatePost/CreatePost"
 import PostCard from "../components/PostCard/PostCard"
 import { useContext, useEffect, useState } from 'react'
 import { GlobalStateContext } from "../global/GlobalStateContext"
+import { api } from '../services/api'
+import useInput from '../hooks/useInput'
+import Header from '../components/Header/Header'
+import { token } from '../utils/token'
 
 export const FeedPage = () => {
 
     const history = useHistory()
-    const token = window.localStorage.getItem("token")
+    // const token = window.localStorage.getItem("token")
+
+    const [textArea, onChangeTextArea] = useInput();
+    const [titleArea, onChangeTitleArea] = useInput();
     
     const { states, setters, requests } = useContext(GlobalStateContext);
 
-    useEffect(()=> {
-        if(!token) {
-        history.push('/login')
+    const createPost = (body) => {
+        api.post('posts',
+        body,
+        {
+            headers: {
+                'Content-Type' : 'application/json',
+                Authorization: token
+            }
+        })
+        .then(r => {
+            console.log(r.data)
+            states.feed()
+        })
+        .catch(e => console.log(e.response))
+    }
+
+    const onSubmitPost = (e)=> {
+        e.preventDefault();
+
+        const body = {
+            text: textArea,
+            title: titleArea
         }
-    },[])
+        createPost(body);
+    }
+
+
 
 
 
@@ -37,9 +66,21 @@ export const FeedPage = () => {
 
 
     return (
+        <>
+        <Header />
         <div className="pageContainers">
-        <CreatePost/>
+
+        <CreatePost
+            textArea={textArea}
+            onChangeTextArea={onChangeTextArea}
+            titleArea={titleArea}
+            onChangeTitleArea={onChangeTitleArea}
+            onSubmitPost={onSubmitPost}
+            />
+
         {states.feed ? renderFeed : "carregando"}
         </div>
+
+        </>
     )
 }

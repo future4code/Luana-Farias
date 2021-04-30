@@ -4,23 +4,24 @@ import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import { Link } from 'react-router-dom';
 import { GlobalStateContext } from "../../global/GlobalStateContext"
 import { useContext, useEffect, useState } from 'react'
+import { convertTime } from '../../utils/convertDate'
+import { token } from '../../utils/token'
 
 
 const PostCard = (props) => {
 
     const {commentsCount, createdAt, id, text, title, username, votesCount} = props
 
-    const { states, setters, requests } = useContext(GlobalStateContext);
-    const token = window.localStorage.getItem("token");
-
+    const { requests } = useContext(GlobalStateContext);
 
 
     return (
         <section key={id} className={styles.postContainer}>
-            <h2>{username}</h2>
+            <h2>{title}</h2>
             <Link to={`/post/${id}`}>
             <p>{text}</p>
             </Link>
+            <p>postado por <strong>{username}</strong> {convertTime(createdAt).toString()} </p>
         
         <div className={styles.buttonsContainer}>
             <button onClick={() => requests.votePost(1,id)}><ExpandLessIcon/></button>
