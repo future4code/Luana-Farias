@@ -5,8 +5,6 @@ import { convertTime } from '../../utils/convertDate';
 
 
 const Comment = (props) => {
-
-
     const { postDetails, makeVoteComment, id } = props
 
     const renderComments = postDetails && postDetails.comments && postDetails.comments.map((post => {
@@ -30,7 +28,6 @@ const Comment = (props) => {
        {renderComments && renderComments.length > 0 && (<h3>Comentários:</h3>)}
         {renderComments}
         </>
-
     )
 }
 

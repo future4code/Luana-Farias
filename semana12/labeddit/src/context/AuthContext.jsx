@@ -18,7 +18,7 @@ const AuthContextProvider = (props) => {
     useEffect(() => {
         const token = window.localStorage.getItem(`${projectName}.token`)
          if (token) {
-            api.defaults.headers.Authorization = `Bearer ${token}`
+            api.defaults.headers.common["Authorization"] = token
             setIsAuth(true)
         }
     },[])
@@ -29,7 +29,7 @@ const AuthContextProvider = (props) => {
         body)
         .then(res => {
             window.localStorage.setItem(`${projectName}.token`, res.data.token)
-            api.defaults.headers.Authorization = `Bearer ${res.data.token}`
+            api.defaults.headers.common["Authorization"] = res.data.token
             setIsAuth(true)
             setters.setIsLoading(false)
             history.push("/")
@@ -40,7 +40,7 @@ const AuthContextProvider = (props) => {
     const logout = () => {
         window.localStorage.removeItem(`${projectName}.token`)
         setIsAuth(false)
-        api.defaults.headers.Authorization = undefined
+        api.defaults.headers.common["Authorization"] = undefined
         history.push('/login')
     }
 

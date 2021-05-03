@@ -8,11 +8,8 @@ import { convertTime } from '../../utils/convertDate'
 
 
 const PostCard = (props) => {
-
     const {commentsCount, createdAt, id, text, title, username, votesCount} = props
-
     const { requests } = useContext(GlobalStateContext);
-
 
     return (
         <section key={id} className={styles.postContainer}>

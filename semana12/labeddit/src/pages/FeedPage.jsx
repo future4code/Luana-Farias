@@ -1,4 +1,3 @@
-import { useHistory } from "react-router"
 import CreatePost from "../components/CreatePost/CreatePost"
 import PostCard from "../components/PostCard/PostCard"
 import { useContext, useEffect, useState } from 'react'
@@ -9,12 +8,10 @@ import Header from '../components/Header/Header'
 
 export const FeedPage = () => {
 
-    const history = useHistory()
-
     const [textArea, onChangeTextArea] = useInput();
     const [titleArea, onChangeTitleArea] = useInput();
     
-    const { states, setters, requests } = useContext(GlobalStateContext);
+    const { states, requests } = useContext(GlobalStateContext);
 
     useEffect(() => {
         requests.getPosts()

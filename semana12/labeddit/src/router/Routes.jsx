@@ -1,26 +1,35 @@
-import { BrowserRouter, Switch, Route, Link, Redirect } from 'react-router-dom'
+import { Switch, Route, Link, Redirect, useLocation } from 'react-router-dom'
 import { FeedPage } from '../pages/FeedPage'
 import { LoginPage } from '../pages/LoginPage'
 import { PostPage } from '../pages/PostPage'
 import { SignInPage } from '../pages/SignInPage'
 import { ErrorPage } from '../pages/ErrorPage'
-import { useEffect } from 'react'
 import { useContext } from 'react'
-import { GlobalStateContext } from '../global/GlobalStateContext'
 import { AuthContext } from '../context/AuthContext'
 
 
 const CustomRoute = ({isPrivate, ...rest}) => {
+    const location = useLocation();
     const { states: {isAuth} } = useContext(AuthContext);
+
     if(isPrivate && isAuth === false) {
         return <Redirect to="/login"/>
-    } 
+    };
+
+    if(isAuth && location.pathname === "/login") {
+        return <Redirect to="/" />
+    };
+
+    if(isAuth && location.pathname === "/signin") {
+        return <Redirect to="/"/>
+    };
+
     return (
         <Route 
             {...rest}
         />
-    )
-}
+    );
+};
 
 
 export const Routes = () => {
@@ -34,7 +43,7 @@ export const Routes = () => {
                 <CustomRoute exact path="/signin" component={ SignInPage } />
                 <CustomRoute component={ ErrorPage } />
             </Switch>
-    )
-}
+    );
+};
 
 export default Routes;
