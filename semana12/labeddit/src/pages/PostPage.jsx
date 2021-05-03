@@ -7,7 +7,6 @@ import { api } from '../services/api'
 import useInput from '../hooks/useInput'
 import { GlobalStateContext } from '../global/GlobalStateContext'
 import Header from '../components/Header/Header'
-import { token } from '../utils/token'
 
 
 export const PostPage = () => {

@@ -2,7 +2,6 @@ import React,{ useEffect, useState } from 'react'
 import { GlobalStateContext } from './GlobalStateContext'
 import { api } from '../services/api'
 import { HowToVote, PinDropSharp } from '@material-ui/icons';
-import { token } from '../utils/token'
 
 
  const GlobalState = (props) => {
@@ -11,37 +10,18 @@ import { token } from '../utils/token'
     const [postDetails, setPostDetails] = useState({});
     const [vote, setVote] = useState({});
     const [isLoading, setIsLoading] = useState(false);
-    // const token = window.localStorage.getItem("token")
 
-    useEffect(() => {
-      getPosts(token)
-    })
-
-    const getPosts = (token) => {
-        api.get('posts',
-        {
-            headers: {
-                'Content-Type':'application/json',
-                Authorization: token
-            }
-        })
+    const getPosts = () => {
+        api.get('posts')
         .then(r => {
             setFeed(r.data.posts)
         })
         .catch(e => console.log(e.response))
     }
 
-    useEffect(() => {
-        getPosts(token)
-    },[])
 
     const getPostDetail = (id) => {
-        api.get(`/posts/${id}`,
-        {
-            headers: {
-                Authorization: token
-            }
-        })
+        api.get(`/posts/${id}`)
         .then(r => {
             setPostDetails(r.data.post)
         })
@@ -49,15 +29,9 @@ import { token } from '../utils/token'
     }
 
     
-    const makePostVote = (id,body,token) => {
+    const makePostVote = (id,body) => {
         api.put(`posts/${id}/vote`,
-        body,
-        {
-            headers: {
-                'Content-Type' : 'application/json',
-                Authorization: token
-            }
-        })
+        body)
         .then(r => {
             setVote(r.data)
             console.log(r.data)
@@ -69,7 +43,7 @@ import { token } from '../utils/token'
         const body = {
             direction: dir
         }
-        makePostVote(id,body,token) 
+        makePostVote(id,body) 
     }
 
     const makeVoteComment = (dir,postId,commentId) => {
@@ -78,20 +52,14 @@ import { token } from '../utils/token'
         }
 
         api.put(`posts/${postId}/comment/${commentId}/vote`,
-        body,
-        {
-            headers :{
-                'Content-Type' : 'application/json',
-                Authorization: token
-            }
-        })
+        body)
         .then(r => console.log(r.data))
         .catch(e=> console.log(e.response))
     }
 
-    const states = { feed, postDetails, isLoading };
-    const setters = { setFeed, setPostDetails, setIsLoading }
-    const requests = { getPosts, getPostDetail, votePost, makeVoteComment }
+    const states = { feed, postDetails, isLoading  };
+    const setters = { setFeed, setPostDetails, setIsLoading };
+    const requests = { getPosts, getPostDetail, votePost, makeVoteComment };
 
     return (
         <GlobalStateContext.Provider value={{ states, setters, requests}}>

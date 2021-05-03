@@ -1,31 +1,15 @@
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { useHistory } from 'react-router';
 import { Link } from 'react-router-dom';
 import { Button } from '../Button/Button'
 import styles from './styles.module.scss'
+import { AuthContext } from '../../context/AuthContext'
 
 
 const Header = () => {
 
-    const [buttonState, setButtonState] = useState("Cadastrar");
-    const token = window.localStorage.getItem("token")
-    const history = useHistory();
-
-    useEffect(() => {
-        if(token){
-            setButtonState("Logout")
-        }
-    },[])
-
-    const logOut = () => {
-        if(buttonState === "Logout") {
-            window.localStorage.removeItem('token')
-        } else {
-            history.push('/signin')
-        }
-    }
-
-   
+    
+    const { states: {isAuth}, requests:{logout}} = useContext(AuthContext)
 
     return (
         <div className={styles.headerContainer}>
@@ -35,8 +19,8 @@ const Header = () => {
            
             
             <Button
-                buttonText={buttonState}
-                onClickButton={logOut}
+                buttonText={isAuth ? "Logout" : "Cadastre-se"}
+                onClickButton={logout}
                 />
             
         </div>

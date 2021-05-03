@@ -6,27 +6,23 @@ import { GlobalStateContext } from "../global/GlobalStateContext"
 import { api } from '../services/api'
 import useInput from '../hooks/useInput'
 import Header from '../components/Header/Header'
-import { token } from '../utils/token'
 
 export const FeedPage = () => {
 
     const history = useHistory()
-    // const token = window.localStorage.getItem("token")
 
     const [textArea, onChangeTextArea] = useInput();
     const [titleArea, onChangeTitleArea] = useInput();
     
     const { states, setters, requests } = useContext(GlobalStateContext);
 
+    useEffect(() => {
+        requests.getPosts()
+    },[])
+
     const createPost = (body) => {
         api.post('posts',
-        body,
-        {
-            headers: {
-                'Content-Type' : 'application/json',
-                Authorization: token
-            }
-        })
+        body)
         .then(r => {
             console.log(r.data)
             states.feed()

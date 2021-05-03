@@ -4,7 +4,7 @@ import Header from '../components/Header/Header';
 import SignIn from '../components/SignIn/SignIn'
 import useInput from '../hooks/useInput';
 import { api } from '../services/api';
-import { token } from '../utils/token'
+
 
 export const SignInPage = () => {
 
@@ -17,7 +17,7 @@ export const SignInPage = () => {
         if(token) {
             history.push("/")
         }
-    },[history])
+    },[])
 
     const onSubmitForm = (e) => {
         e.preventDefault();

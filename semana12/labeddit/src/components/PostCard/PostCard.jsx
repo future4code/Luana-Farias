@@ -5,7 +5,6 @@ import { Link } from 'react-router-dom';
 import { GlobalStateContext } from "../../global/GlobalStateContext"
 import { useContext, useEffect, useState } from 'react'
 import { convertTime } from '../../utils/convertDate'
-import { token } from '../../utils/token'
 
 
 const PostCard = (props) => {

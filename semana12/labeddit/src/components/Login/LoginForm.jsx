@@ -13,8 +13,18 @@ const LoginForm = (props) => {
     return ( 
         <form onSubmit={onSubmitForm} className={styles.formContainer}>
             <h2>Faça login ou <Link to="/signin"><span>cadastre-se</span></Link> </h2>
-            <input type="email" name="email" value={email} onChange={handleEmail} placeholder="E-mail"/>
-            <input type="password" name="password" value={password} onChange={handlePassword} placeholder="Senha"/>
+            <input type="email" 
+            name="email" value={email} 
+            onChange={handleEmail} 
+            placeholder="E-mail"
+            />
+
+            <input type="password" 
+            name="password" value={password} 
+            onChange={handlePassword} 
+            placeholder="Senha"
+            />
+            
             {/* <button>Entrar</button> */}
             {states.isLoading ? <CircularProgress/> : <ButtonSecondary buttonText={"Entrar"}/> }   
         </form>
