@@ -28,7 +28,6 @@ export const PostPage = () => {
         api.post(`/posts/${id}/comment`, 
         body)
         .then(r => {
-            console.log(r.data)
             requests.getPostDetail(id)
         })
         .catch(e => console.log(e.response))

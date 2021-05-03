@@ -1,4 +1,4 @@
-import { Switch, Route, Link, Redirect, useLocation } from 'react-router-dom'
+import { Switch, Route, Redirect, useLocation } from 'react-router-dom'
 import { FeedPage } from '../pages/FeedPage'
 import { LoginPage } from '../pages/LoginPage'
 import { PostPage } from '../pages/PostPage'

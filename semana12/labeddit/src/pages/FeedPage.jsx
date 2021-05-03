@@ -5,6 +5,7 @@ import { GlobalStateContext } from "../global/GlobalStateContext"
 import { api } from '../services/api'
 import useInput from '../hooks/useInput'
 import Header from '../components/Header/Header'
+import { CircularProgress } from "@material-ui/core"
 
 export const FeedPage = () => {
 
@@ -21,7 +22,6 @@ export const FeedPage = () => {
         api.post('posts',
         body)
         .then(r => {
-            console.log(r.data)
             states.feed()
         })
         .catch(e => console.log(e.response))
@@ -71,7 +71,7 @@ export const FeedPage = () => {
             onSubmitPost={onSubmitPost}
             />
 
-        {states.feed ? renderFeed : "carregando"}
+        {states.feed ? renderFeed : <CircularProgress/>}
         </div>
 
         </>

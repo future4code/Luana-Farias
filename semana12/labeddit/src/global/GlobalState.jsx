@@ -1,7 +1,6 @@
 import React,{ useEffect, useState } from 'react'
 import { GlobalStateContext } from './GlobalStateContext'
 import { api } from '../services/api'
-import { HowToVote, PinDropSharp } from '@material-ui/icons';
 
 
  const GlobalState = (props) => {
@@ -21,9 +20,11 @@ import { HowToVote, PinDropSharp } from '@material-ui/icons';
 
 
     const getPostDetail = (id) => {
+        setIsLoading(true)
         api.get(`/posts/${id}`)
         .then(r => {
             setPostDetails(r.data.post)
+            setIsLoading(false)
         })
         .catch(e => console.log(e.response))
     }
@@ -34,7 +35,8 @@ import { HowToVote, PinDropSharp } from '@material-ui/icons';
         body)
         .then(r => {
             setVote(r.data)
-            console.log(r.data)
+            getPosts()
+            getPostDetail(id)
         })
         .catch(e => console.log(e.response))
     }
@@ -53,7 +55,11 @@ import { HowToVote, PinDropSharp } from '@material-ui/icons';
 
         api.put(`posts/${postId}/comment/${commentId}/vote`,
         body)
-        .then(r => console.log(r.data))
+        .then(r => {
+            setVote(r.data)
+            getPostDetail(postId)
+            console.log(r.data)
+        })
         .catch(e=> console.log(e.response))
     }
 
