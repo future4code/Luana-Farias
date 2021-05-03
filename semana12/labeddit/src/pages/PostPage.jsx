@@ -12,7 +12,6 @@ import Header from '../components/Header/Header'
 export const PostPage = () => {
 
     const { id } = useParams();
-    // const token = window.localStorage.getItem("token");
     const [commentArea, handleCommentArea] = useInput();
   
 
@@ -25,15 +24,9 @@ export const PostPage = () => {
 
   
 
-    const createComment = (id, token, body) => {
+    const createComment = (id, body) => {
         api.post(`/posts/${id}/comment`, 
-        body,
-        {
-            headers: {
-                'Content-Type':'application/json',
-                Authorization: token
-            }
-        })
+        body)
         .then(r => {
             console.log(r.data)
             requests.getPostDetail(id)
@@ -49,7 +42,7 @@ export const PostPage = () => {
             text: commentArea
         }
 
-        createComment(id, token, body)
+        createComment(id, body)
     }
 
 

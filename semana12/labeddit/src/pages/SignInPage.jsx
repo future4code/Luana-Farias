@@ -1,20 +1,23 @@
+import { useContext } from 'react';
 import { useEffect } from 'react';
 import { useHistory } from 'react-router';
 import Header from '../components/Header/Header';
 import SignIn from '../components/SignIn/SignIn'
+import { AuthContext } from '../context/AuthContext';
 import useInput from '../hooks/useInput';
 import { api } from '../services/api';
 
 
 export const SignInPage = () => {
 
+    const { states: {isAuth} } = useContext(AuthContext)
     const [email, handleEmail] = useInput();
     const [password, handlePassword] = useInput();
     const [username, handleUsername] = useInput();
     const history = useHistory();
 
     useEffect(() => {
-        if(token) {
+        if(isAuth) {
             history.push("/")
         }
     },[])
@@ -32,12 +35,7 @@ export const SignInPage = () => {
 
     const signUp = async (body) => {
         const res = await api.post('signup',
-        body,
-         {
-            headers: {
-                'Content-Type' : 'application/json'
-            }
-        })
+        body)
         .then((res) => {
             console.log(res.data)
         })
