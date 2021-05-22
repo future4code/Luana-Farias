@@ -98,13 +98,54 @@ app.get('/accounts/balance', (req: Request, res: Response) => {
 })
 
 app.post('/addBalance', (req: Request, res: Response) => {
-    let { name, cpf } = req.body
+   try {
+    let { name } = req.body
     let balance = Number(req.body.balance)
-    let user = accounts.filter((acc: any) => acc.balance += balance)
+    let cpf = Number(req.body.cpf)
+    let user = accounts.filter((acc: any) => {
+        if(acc.name === name && acc.cpf === cpf){
+            return acc.balance += balance
+        }
+    })
     accounts.push(user)
+
+    if(!user.length) {
+        throw new Error("Not found.")
+    }
     res
         .status(200)
         .send(user)
+   } catch (err) {
+    res
+        .status(400)
+        .send({message: err.message})
+   }
+})
+
+app.post('/payment/:cpf', (req: Request, res: Response) => {
+    try {
+        const cpf = Number(req.params.cpf)
+        let value = Number(req.body.value)
+        const date = req.body.date
+        const description = req.body.description
+
+        const result: object[] = accounts.filter((acc: any) => {
+            if(acc.cpf === cpf && acc.balance >= value) {
+                acc.balance = acc.balance - value
+                let newBill = {...req.body}
+                acc.statement.push(newBill)
+                return acc
+            }
+        })
+
+        res
+            .status(200)
+            .send(result)
+    } catch (err) {
+        res
+            .status(400)
+            .send({message: err.message})
+    }
 })
 
 
