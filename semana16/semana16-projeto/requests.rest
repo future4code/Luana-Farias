@@ -1,9 +1,19 @@
-PUT http://localhost:3003/user
+
+
+GET http://localhost:3306/user/9
 Content-Type: application/json
 
-{
-    "id": "02",
-    "name": "Luana",
-    "nickname": "Lua",
-    "email": "luana@gmail.com"
-}
+# PUT http://localhost:3306/user
+# Content-Type: application/json
+
+# {
+#     "name": "Carla",
+#     "nickname": "Carlinha",
+#     "email": "carlinha@gmail.com"
+# }
+
+
+
+
+# http://localhost:3306/getuser
+# Content-Type: application/json
