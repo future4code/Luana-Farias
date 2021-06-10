@@ -38,23 +38,23 @@ export default async function createUser(
 
       const cypherText = await hash(password);
 
-      const newUser: user = { id, name, nickname, email, password: cypherText, role, cep, number }
+      const newUser: user = { id, name, nickname, email, password: cypherText, role }
 
       await connection('user_table_name')
          .insert(newUser)
 
       const token: string = generateToken({ id, role })
 
-      res.status(201).send({ token })
-
-      const adress = getAdressInfo(cep)
-
+      const adress = await getAdressInfo(cep)
+      const newAdress = {...adress, cep, number, complement, user_id: id}
       await connection('user_table_adress')
-         .insert(adress)
+         .insert(newAdress)
+
+         res.status(201).send({ token })
 
    } catch (error) {
-      console.log("aqui", req.body)
       if (res.statusCode === 200) {
+         console.log(error.message)
          res.status(500).send({ message: "Internal server error" })
       } else {
          res.send({ message: error.message })

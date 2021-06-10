@@ -9,7 +9,7 @@ try {
     const res = await axios.get(`https://viacep.com.br/ws/${cep}/json/`)
     
     const adress: userAdress = {
-        locality: res.data.logradouro,
+        street: res.data.logradouro,
         neighborhood: res.data.bairro,
         city: res.data.localidade,
         state: res.data.uf
@@ -19,7 +19,3 @@ try {
     return null
 }
 }
-
-// export const createAdress = async (req: Request, res: Response) : Promise<object> => {
-//     const {}
-// }
