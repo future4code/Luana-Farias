@@ -1,4 +1,4 @@
-import { genSaltSync, hashSync, compareSync } from "bcrypt";
+import { genSaltSync, hashSync, compareSync } from "bcryptjs";
 
 export const createHash = (plainText: string) : string => {
     const salt: string = genSaltSync(12)

@@ -6,10 +6,7 @@ config()
 export const generateToken = (id: string) : string => {
     return jwt.sign(
         id,
-        process.env.JWT_KEY!,
-        {
-            expiresIn: "12h"
-        }
+        process.env.JWT_KEY!
     )
 }
 
