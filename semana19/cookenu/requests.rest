@@ -25,4 +25,12 @@ Content-Type: application/json
 
 GET http://localhost:3003/user/profile
 Content-Type: application/json
-auth: eeyJhbGciOiJIUzI1NiJ9.NWQwODAwN2EtY2ZjOC00ZmY0LTliNTYtOTBiNDk0OGNkNjIz.03jO85BoWIFtKo4g43_QqVg112WyT9aBvdLdS73aPq8
+auth: eyJhbGciOiJIUzI1NiJ9.NWQwODAwN2EtY2ZjOC00ZmY0LTliNTYtOTBiNDk0OGNkNjIz.03jO85BoWIFtKo4g43_QqVg112WyT9aBvdLdS73aPq8
+
+
+###
+
+GET http://localhost:3003/user/5d08007a-cfc8-4ff4-9b56-90b4948cd623
+Content-Type: application/json
+auth: eyJhbGciOiJIUzI1NiJ9.NWQwODAwN2EtY2ZjOC00ZmY0LTliNTYtOTBiNDk0OGNkNjIz.03jO85BoWIFtKo4g43_QqVg112WyT9aBvdLdS73aPq8
+

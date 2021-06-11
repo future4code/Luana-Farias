@@ -7,16 +7,18 @@ export const getProfile = async (req: Request, res: Response) => {
     try {
         const token = req.headers.auth as string
 
-        const id = getTokenData(token)
+        const tokenId = getTokenData(token)
 
         const findUser = await connection('User')
-                            .where({ id })
+                            .where({ id: tokenId })
+
+        const [{id, name, email}] = findUser
+
+        const newUser = {id, name, email}
        
         if(findUser) {
-            res.status(200).send(findUser)
+            res.status(200).send(newUser)
         } 
-
-        res.status(200).send({ token })
 
         } catch (err) {
             if (err.message.includes("invalid token")) {
